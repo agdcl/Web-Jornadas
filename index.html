@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>II International Congress on Health and Addictions (ICoHA)</title>
+  <meta name="description" content="ICoHA · II International Congress on Health and Addictions. 11–12 diciembre 2025 · Elche (UMH). Avances basados en la evidencia en salud y adicciones.">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <!-- GA4: replace G-XXXX with your Measurement ID -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXX');
+  </script> -->
+</head>
+<body>
+  <!-- Sticky navbar -->
+  <nav class="navbar navbar-expand-lg bg-white sticky-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">
+        ICoHA · 2025
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="#about" data-i18n="nav.about">El congreso</a></li>
+          <li class="nav-item"><a class="nav-link" href="#speakers" data-i18n="nav.speakers">Ponentes</a></li>
+          <li class="nav-item"><a class="nav-link" href="#pricing" data-i18n="nav.pricing">Entradas</a></li>
+          <li class="nav-item"><a class="nav-link" href="#abstracts" data-i18n="nav.abstracts">Trabajos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#venue" data-i18n="nav.venue">Sede</a></li>
+          <li class="nav-item"><a class="nav-link" href="#register" data-i18n="nav.register">Inscripción</a></li>
+        </ul>
+        <div class="d-flex align-items-center gap-2">
+          <select id="langSelect" class="form-select form-select-sm w-auto" aria-label="Language">
+            <option value="es" selected>ES</option>
+            <option value="en">EN</option>
+          </select>
+          <a href="#register" class="btn btn-primary" id="ctaRegister" data-i18n="cta.register">Inscribirse</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero d-flex align-items-center">
+    <div class="container text-center text-white">
+      <h1 class="display-5 fw-bold mb-3" data-i18n="hero.title">II International Congress on Health and Addictions</h1>
+      <p class="lead mb-1" data-i18n="hero.tagline">Evidence based advances in Health and Addictions</p>
+      <p class="mb-4" data-i18n="hero.meta">11 y 12 de diciembre de 2025 · Universidad Miguel Hernández · Elche</p>
+      <div id="countdown" class="countdown d-flex justify-content-center gap-3 mb-4" aria-live="polite"></div>
+      <div class="d-flex justify-content-center gap-2">
+        <a href="#pricing" class="btn btn-light btn-lg" data-i18n="hero.view_prices">Ver precios</a>
+        <a href="#register" class="btn btn-outline-light btn-lg" data-i18n="hero.register_now">Inscribirse ahora</a>
+      </div>
+    </div>
+    <div class="hero-overlay"></div>
+  </section>
+
+  <!-- Key benefits -->
+  <section class="py-5" id="about">
+    <div class="container">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-6">
+          <h2 class="fw-bold mb-3" data-i18n="about.heading">Un congreso para profesionales y estudiantes</h2>
+          <p class="mb-4" data-i18n="about.copy">Bienvenido al ICoHA 2025. En estas jornadas reunimos durante dos días a investigadores internacionales, profesionales y estudiantes para compartir evidencia reciente y debatir tendencias emergentes en el campo de la salud y las adicciones. El programa pone el foco tanto en las conductas de abuso y los comportamientos problemáticos vinculados a las tecnologías como en el consumo de sustancias como el cannabis y los opioides, entre otras. La propuesta combina un enfoque académico riguroso con una vocación aplicada orientada a la prevención, la intervención y la transferencia de conocimiento.</p>
+          <div class="row g-3">
+            <div class="col-md-4">
+              <div class="p-3 benefit-card h-100">
+                <h3 class="h6 mb-1" data-i18n="about.benefit1.title">Networking</h3>
+                <p class="small mb-0" data-i18n="about.benefit1.copy">Conecta con investigadores, clínicos y responsables de programas.</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="p-3 benefit-card h-100">
+                <h3 class="h6 mb-1" data-i18n="about.benefit2.title">Ponentes internacionales</h3>
+                <p class="small mb-0" data-i18n="about.benefit2.copy">Perspectivas de referencia en salud y adicciones.</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="p-3 benefit-card h-100">
+                <h3 class="h6 mb-1" data-i18n="about.benefit3.title">Actualidad científica</h3>
+                <p class="small mb-0" data-i18n="about.benefit3.copy">Aplicada a prevención y promoción de la salud.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="promo-card p-4">
+            <h3 class="h5 fw-bold mb-2" data-i18n="about.when_where.title">Cuándo y dónde</h3>
+            <p class="mb-1" data-i18n="about.when_where.copy">11 de diciembre de 16:00 a 20:00 y 12 de diciembre de 9:00 a 14:00, Universidad Miguel Hernández, Elche.</p>
+            <ul class="mb-0 small">
+              <li data-i18n="about.when_where.item1">Formato presencial</li>
+              <li data-i18n="about.when_where.item2">Certificado de asistencia</li>
+              <li data-i18n="about.when_where.item3">Plazas limitadas</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Speakers -->
+  <section class="py-5 bg-light" id="speakers">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-end mb-3">
+        <h2 class="fw-bold" data-i18n="speakers.title">Ponentes y mesas</h2>
+      </div>
+
+      <div class="row g-4">
+        <!-- Mesa 1 -->
+        <div class="col-md-6">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <span class="badge text-bg-primary mb-2" data-i18n="speakers.panel">Mesa</span>
+              <h3 class="h5 fw-bold mb-2">Más allá del rendimiento: la salud en el deporte</h3>
+              <ul class="list-unstyled mb-0">
+                <li class="mb-3">
+                  <div class="fw-semibold">Luís Hidalgo Abenza</div>
+                  <div class="small text-muted">Decano del CODiNuRM. Responsable de Nutrición, CAR Infanta Cristina, Murcia</div>
+                  <div class="small">Nutrición, salud y rendimiento deportivo</div>
+                </li>
+                <li>
+                  <div class="fw-semibold">Francisco J. Ortín Montero</div>
+                  <div class="small text-muted">Doctor en Psicología. IP del Grupo de Psicología del Deporte, Universidad de Murcia</div>
+                  <div class="small">Bienestar psicológico en el contexto deportivo</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mesa 2 -->
+        <div class="col-md-6">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <span class="badge text-bg-primary mb-2" data-i18n="speakers.panel">Mesa</span>
+              <h3 class="h5 fw-bold mb-2">Estigma y Adicciones</h3>
+              <ul class="list-unstyled mb-0">
+                <li class="mb-3">
+                  <div class="fw-semibold">Sergio Fernández‑Artamendi</div>
+                  <div class="small text-muted">Universidad de Sevilla</div>
+                  <div class="small">Cannabis, salud mental y adicciones</div>
+                </li>
+                <li>
+                  <div class="fw-semibold">Víctor Villanueva</div>
+                  <div class="small text-muted">Universidad Internacional de Valencia</div>
+                  <div class="small">Título por confirmar</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mesa 3 -->
+        <div class="col-md-6">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <span class="badge text-bg-primary mb-2" data-i18n="speakers.panel">Mesa</span>
+              <h3 class="h5 fw-bold mb-2">Menores y uso de tecnología</h3>
+              <ul class="list-unstyled mb-0">
+                <li class="mb-3">
+                  <div class="fw-semibold">Olatz Fernández</div>
+                  <div class="small">Título por confirmar</div>
+                </li>
+                <li>
+                  <div class="fw-semibold">Juan F. Navas</div>
+                  <div class="small">Título por confirmar</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mesa 4 -->
+        <div class="col-md-6">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <span class="badge text-bg-primary mb-2" data-i18n="speakers.panel">Mesa</span>
+              <h3 class="h5 fw-bold mb-2">Innovaciones y retos en el tratamiento de las adicciones</h3>
+              <ul class="list-unstyled mb-0">
+                <li>
+                  <div class="fw-semibold">Ana López Durán</div>
+                  <div class="small">Título por confirmar</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="py-5" id="pricing">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h2 class="fw-bold" data-i18n="pricing.title">Inscripciones</h2>
+        <p class="text-muted" data-i18n="pricing.note">El descuento por inscripción temprana está activo hasta el 30 de noviembre</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="card h-100 shadow-sm price-card border-primary">
+            <div class="card-body">
+              <h3 class="h5 fw-bold" data-i18n="pricing.student.title">Estudiantes</h3>
+              <ul class="list-unstyled mb-3 small">
+                <li data-i18n="pricing.perks.1">Acceso a todas las sesiones</li>
+                <li data-i18n="pricing.perks.2">Certificado de asistencia</li>
+              </ul>
+              <div class="d-flex align-items-baseline gap-2">
+                <div class="display-6 fw-bold mb-0">10€</div>
+                <div class="text-muted" data-i18n="pricing.early">hasta 30 nov</div>
+              </div>
+              <div class="text-muted">20€ · <span data-i18n="pricing.standard">desde 1 dic</span></div>
+              <a href="#register" class="btn btn-primary w-100 mt-3" data-i18n="cta.register">Inscribirse</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card h-100 shadow-sm price-card">
+            <div class="card-body">
+              <h3 class="h5 fw-bold" data-i18n="pricing.general.title">General</h3>
+              <ul class="list-unstyled mb-3 small">
+                <li data-i18n="pricing.perks.1">Acceso a todas las sesiones</li>
+                <li data-i18n="pricing.perks.2">Certificado de asistencia</li>
+              </ul>
+              <div class="d-flex align-items-baseline gap-2">
+                <div class="display-6 fw-bold mb-0">15€</div>
+                <div class="text-muted" data-i18n="pricing.early">hasta 30 nov</div>
+              </div>
+              <div class="text-muted">30€ · <span data-i18n="pricing.standard">desde 1 dic</span></div>
+              <a href="#register" class="btn btn-outline-primary w-100 mt-3" data-i18n="cta.register">Inscribirse</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Abstracts -->
+  <section class="py-5 bg-light" id="abstracts">
+    <div class="container">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-7">
+          <h2 class="fw-bold mb-2" data-i18n="abstracts.title">Envío de trabajos</h2>
+          <p class="mb-3" data-i18n="abstracts.copy">Fecha límite 20 de noviembre. Consulta las normas para pósteres.</p>
+          <div class="d-flex gap-2">
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#posterRulesModal">Normas para pósteres</button>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#submitInfoModal">Presentar trabajo</button>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="p-4 border rounded-4 bg-white shadow-sm">
+            <h3 class="h6 fw-bold" data-i18n="abstracts.deadlines">Plazos importantes</h3>
+            <ul class="mb-0 small">
+              <li>20 nov: fin envío de trabajos</li>
+              <li>30 nov: fin inscripción temprana</li>
+              <li>11 dic: inicio del congreso</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Venue -->
+  <section class="py-5" id="venue">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <h2 class="fw-bold mb-2" data-i18n="venue.title">Sede</h2>
+          <p data-i18n="venue.copy">El congreso se celebra en la Universidad Miguel Hernández de Elche, en el Edificio Valona. Elche ofrece una amplia oferta de alojamiento y restauración en el entorno del palmeral histórico.</p>
+          <a href="#contact" class="btn btn-outline-primary" data-i18n="venue.contact">Dudas logísticas</a>
+        </div>
+        <div class="col-lg-6">
+          <div class="ratio ratio-16x9 rounded-4 shadow-sm bg-soft">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3625.673204000943!2d-0.6837784237521811!3d38.27508538318253!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd63b7ac2ff3f393%3A0xa32af0642be46e8!2sEdificio%20Valona!5e1!3m2!1ses!2ses!4v1760968983541!5m2!1ses!2ses" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Organizers / logos -->
+  <section class="py-5 bg-light" id="organizers">
+    <div class="container">
+      <h2 class="fw-bold mb-4" data-i18n="org.title">Organiza</h2>
+      <div class="row g-4 align-items-center">
+        <div class="col-6 col-md-3 text-center">
+          <img src="assets/img/logo_umh.jpg" class="img-fluid org-logo" alt="UMH logo">
+        </div>
+        <div class="col-6 col-md-3 text-center">
+          <img src="assets/img/logo_inid_horizontal.jpg" class="img-fluid org-logo" alt="INID logo">
+        </div>
+        <div class="col-6 col-md-3 text-center">
+          <img src="assets/img/logo_ucab.png" class="img-fluid org-logo" alt="UCAB logo">
+        </div>
+        <div class="col-6 col-md-3 text-center">
+          <img src="assets/img/logo_prevengo.png" class="img-fluid org-logo" alt="Prevengo Research logo">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Registration -->
+  <section class="py-5" id="register">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <h2 class="fw-bold mb-3" data-i18n="register.title">Inscripción</h2>
+          <p class="mb-2" data-i18n="register.copy">Completa el formulario para reservar tu plaza. El pago se realizará mediante pasarela segura. Enviaremos el enlace de pago por correo si la pasarela no está integrada en el formulario.</p>
+          <ul class="small">
+            <li data-i18n="register.item1">Plazas limitadas</li>
+            <li data-i18n="register.item2">Recibirás confirmación automática por email</li>
+          </ul>
+        </div>
+        <div class="col-lg-6">
+          <div class="gform-embed shadow-sm rounded-4"><iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfeJeTaLeESInA5Askxk92B0k2tO8TA6eLJCxTIZB-wvoBNDQ/viewform?embedded=true" width="640" height="1092" frameborder="0" marginheight="0" marginwidth="0">Cargando… style="border:0; width:100%; height:100%;"></iframe></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="py-5 bg-light" id="contact">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <h2 class="fw-bold mb-2" data-i18n="contact.title">Contacto</h2>
+          <p class="mb-2">info@icoha.es · +34 96 665 85 26</p>
+          
+        </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-4 border-top">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+      <div class="small text-muted">© 2025 ICoHA</div>
+      <div class="d-flex gap-3 small">
+        <a href="#" data-bs-toggle="modal" data-bs-target="#legalModal" data-i18n="legal.legal">Aviso legal</a>
+        <a href="#" data-bs-toggle="modal" data-bs-target="#privacyModal" data-i18n="legal.privacy">Política de privacidad</a>
+        <a href="#" data-bs-toggle="modal" data-bs-target="#cookiesModal" data-i18n="legal.cookies">Política de cookies</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Legal modals -->
+  <div class="modal fade" id="legalModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" data-i18n="legal.legal">Aviso legal</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body small">
+          <p data-i18n="legal.placeholder">Texto legal de ejemplo. Sustituir por versión validada por el equipo jurídico.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="privacyModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" data-i18n="legal.privacy">Política de privacidad</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body small">
+          <p data-i18n="legal.placeholder">Texto legal de ejemplo. Sustituir por versión validada por el equipo jurídico.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="cookiesModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" data-i18n="legal.cookies">Política de cookies</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body small">
+          <p data-i18n="legal.placeholder">Texto legal de ejemplo. Sustituir por versión validada por el equipo jurídico.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cookie banner -->
+  <div id="cookieBanner" class="cookie-banner shadow-lg">
+    <div class="container d-flex flex-column flex-lg-row align-items-lg-center justify-content-between gap-3">
+      <div class="small">
+        <strong data-i18n="cookies.title">Tu privacidad</strong>
+        <span data-i18n="cookies.copy">Usamos cookies propias y de terceros para fines funcionales y analíticos. Ajusta tus preferencias.</span>
+      </div>
+      <div class="d-flex align-items-center gap-2">
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" id="analyticsSwitch">
+          <label class="form-check-label small" for="analyticsSwitch" data-i18n="cookies.analytics">Analytics</label>
+        </div>
+        <button id="btnRejectCookies" class="btn btn-outline-secondary btn-sm" data-i18n="cookies.reject">Rechazar</button>
+        <button id="btnAcceptCookies" class="btn btn-primary btn-sm" data-i18n="cookies.accept">Aceptar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="assets/js/main.js"></script>
+
+  <!-- Poster Rules Modal -->
+  <div class="modal fade" id="posterRulesModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Normas para el envío de resúmenes y presentación de pósteres</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <h6 class="fw-bold">Procedimiento de envío de resúmenes de póster</h6>
+          <ul>
+            <li><strong>Modalidad:</strong> Todas las comunicaciones deberán presentarse en formato póster.</li>
+            <li><strong>Título:</strong> En minúsculas con formato oración, evitando el uso de mayúsculas completas.</li>
+            <li><strong>Autores:</strong> Apellidos seguidos de la inicial del nombre, separados por punto y coma (p. ej., Pérez A.; López M.). A continuación, el centro de trabajo o institución de cada autor/a.</li>
+            <li><strong>Tutor/a académico:</strong> En pósteres resultantes de TFG o TFM, incluir el nombre del tutor o tutora académico/a.</li>
+            <li><strong>Resumen:</strong> Máximo 500 palabras. Estructura: Introducción/Objetivos, Método, Resultados (deben presentarse datos ya procesados), Conclusiones y dos referencias bibliográficas. No se admitirán tablas ni figuras en el resumen.</li>
+            <li><strong>Autor/a de contacto:</strong> Indicar nombre, apellidos y correo electrónico. Será la persona responsable de las comunicaciones con la organización.</li>
+          </ul>
+          <p class="mb-2"><strong>Casos clínicos.</strong> También se admite la presentación de casos clínicos. Estructura del resumen: Introducción, Historia del problema/Motivo de consulta, Instrumentos de evaluación empleados, Intervención, Resultados, Discusión y dos referencias bibliográficas.</p>
+          <p>Los resúmenes recibidos serán evaluados por el Comité Científico, que comunicará al autor/a de contacto su aceptación e inclusión en el programa. Para la aceptación es necesario que al menos una persona firmante esté inscrita en el congreso.</p>
+          <hr>
+          <h6 class="fw-bold">Presentación de pósteres</h6>
+          <p><strong>Formato y dimensiones.</strong> DIN A0 vertical (118,9 cm de alto × 84,1 cm de ancho).</p>
+          <p><strong>Encabezado.</strong> Incluir título, autores, institución de afiliación y/o centro de trabajo. Los autores se presentarán indicando los apellidos seguidos de la inicial del nombre. En pósteres de TFG o TFM, incluir el nombre del tutor o tutora académico/a.</p>
+          <p><strong>Estructura del contenido.</strong> Secciones de Introducción, Objetivos, Método, Resultados, Conclusiones y Referencias.</p>
+          <p><strong>Tamaño y estilo de letra.</strong> Título en mayúsculas y negrita, tamaño no inferior a 26 puntos (recomendado 32). Resto del texto entre 18 y 26 puntos.</p>
+          <p><strong>Elementos gráficos.</strong> Figuras y tablas legibles a distancia, con tipografía clara y tamaño adecuado. Numeración arábiga e integración visual con el texto.</p>
+          <p>Los pósteres aceptados deberán exhibirse durante la jornada en el espacio asignado por la organización, y se solicitará la presencia de al menos una persona autora durante el horario destinado a su defensa o exposición. El certificado de presentación se entregará únicamente si el trabajo ha sido expuesto durante las jornadas.</p>
+          <p>Con motivo del Congreso, se publicará un suplemento especial en la revista <em>Health and Addictions/Salud y Drogas</em> que incluirá los pósteres aceptados y presentados.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

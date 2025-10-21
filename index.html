@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>II International Congress on Health and Addictions (ICoHA)</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg bg-white sticky-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#" data-i18n="brand">ICoHA · 2025</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item"><a class="nav-link" href="#about" data-i18n="nav.about">El congreso</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#allSpeakersModal" data-i18n="nav.speakers">Ponentes</a></li>
+          <li class="nav-item"><a class="nav-link" href="#pricing" data-i18n="nav.pricing">Inscripciones</a></li>
+          <li class="nav-item"><a class="nav-link" href="#abstracts" data-i18n="nav.abstracts">Trabajos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#venue" data-i18n="nav.venue">Sede</a></li>
+          <li class="nav-item"><a class="nav-link" href="#register" data-i18n="nav.register">Inscripción</a></li>
+        </ul>
+        <div class="d-flex align-items-center gap-2">
+          <button class="btn btn-outline-secondary btn-sm lang-btn" data-lang="es" title="Español">🇪🇸 ES</button>
+          <button class="btn btn-outline-secondary btn-sm lang-btn" data-lang="en" title="English">🇺🇸 EN</button>
+          <a href="#register" class="btn btn-primary" data-i18n="cta.register">Inscribirse</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero d-flex align-items-center text-white">
+    <div class="container text-center position-relative" style="z-index:2;">
+      <h1 class="display-5 fw-bold mb-2" data-i18n="hero.title">II International Congress on Health and Addictions</h1>
+      <p class="lead mb-1" data-i18n="hero.tagline">Evidence based advances in research and practice</p>
+      <p class="mb-4" data-i18n="hero.meta">11 y 12 de diciembre de 2025 · Universidad Miguel Hernández · Elche</p>
+      <div class="d-flex justify-content-center gap-2">
+        <a href="#pricing" class="btn btn-light btn-lg" data-i18n="hero.view_prices">Ver precios</a>
+        <a href="#register" class="btn btn-outline-light btn-lg" data-i18n="hero.register_now">Inscribirse ahora</a>
+      </div>
+    </div>
+    <div class="hero-overlay"></div>
+  </section>
+
+  <section class="py-5 reveal" id="about">
+    <div class="container">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-6">
+          <h2 class="fw-bold mb-3" data-i18n="about.heading">Un congreso para profesionales y estudiantes</h2>
+          <p class="mb-4" data-i18n="about.copy">
+            Bienvenido al ICoHA 2025. En estas jornadas reunimos durante dos días a investigadores internacionales, profesionales y estudiantes para compartir evidencia reciente y debatir tendencias emergentes en el campo de la salud y las adicciones. El programa pone el foco tanto en las conductas de abuso y los comportamientos problemáticos vinculados a las tecnologías como en el consumo de sustancias como el cannabis y los opioides, entre otras. La propuesta combina un enfoque académico riguroso con una vocación aplicada orientada a la prevención, la intervención y la transferencia de conocimiento.
+          </p>
+          <div class="d-flex flex-wrap gap-2 mb-3">
+            <div class="btn-mint animate-pop text-start">
+              <div class="fw-bold" data-i18n="about.benefit1.title">Networking</div>
+              <div class="small" data-i18n="about.benefit1.copy">Conecta con investigadores, clínicos y responsables de programas.</div>
+            </div>
+            <div class="btn-mint animate-pop text-start">
+              <div class="fw-bold" data-i18n="about.benefit2.title">Ponentes internacionales</div>
+              <div class="small" data-i18n="about.benefit2.copy">Perspectivas de referencia en salud y adicciones.</div>
+            </div>
+            <div class="btn-mint animate-pop text-start">
+              <div class="fw-bold" data-i18n="about.benefit3.title">Actualidad científica</div>
+              <div class="small" data-i18n="about.benefit3.copy">Aplicada a prevención y promoción de la salud.</div>
+            </div>
+          </div>
+          <div class="p-3 promo-card">
+            <h3 class="h6 fw-bold mb-1" data-i18n="about.when_where.title">Cuándo y dónde</h3>
+            <p class="mb-2" data-i18n="about.when_where.copy">11 de diciembre (16:00–20:00) y 12 de diciembre (9:00–14:00), Universidad Miguel Hernández, Elche. Ed. Valona.</p>
+            <ul class="small mb-0">
+              <li data-i18n="about.when_where.item1">Presencial</li>
+              <li data-i18n="about.when_where.item2">Certificado de asistencia</li>
+              <li data-i18n="about.when_where.item3">Reconocimiento de créditos</li>
+              <li data-i18n="about.when_where.item4">Plazas limitadas</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div id="speakersCarousel" class="carousel slide mb-4 reveal" data-bs-ride="carousel" data-bs-interval="5000">
+            <div class="carousel-inner shadow-sm">
+              <div class="carousel-item active">
+                <img src="assets/img/speakers/spk_1.jpg" class="d-block w-100 speaker-img" alt="Gregor Burkhart">
+                <div class="carousel-caption d-none d-md-block bg-caption">
+                  <h5 class="mb-1"><span class="badge text-bg-warning me-2" data-i18n="speakers.opening_badge">Ponencia inaugural</span>Gregor Burkhart</h5>
+                  <p class="small mb-0">European Union Drugs Agency EUDA (Portugal)</p>
+<p class="small mb-0">Sociedad Europea de Investigación en Prevención (EUSPR)</p>
+
+		  
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="assets/img/speakers/spk_2.jpg" class="d-block w-100 speaker-img" alt="Luís Hidalgo Abenza">
+                <div class="carousel-caption d-none d-md-block bg-caption">
+                  <h5 class="mb-1">Luís Hidalgo Abenza</h5>
+                  <p class="small mb-0">Decano del Colegio Oficial de Dietistas-Nutricionistas (Murcia)</p>
+<p class="small mb-0">Responsable del Área de Nutrición del Centro de Alto Rendimiento Infanta Cristina</p>
+		  
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="assets/img/speakers/spk_3.jpg" class="d-block w-100 speaker-img" alt="Francisco J. Ortín Montero">
+                <div class="carousel-caption d-none d-md-block bg-caption">
+                  <h5 class="mb-1">Francisco J. Ortín Montero</h5>
+                  <p class="small mb-0">Responsable del Área de Psicología del Centro de Alto Rendimiento Infanta Cristina.</p>
+ <p class="small mb-0">IP Grupo de Investigación de Psicología del Deporte</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="assets/img/speakers/spk_4.jpg" class="d-block w-100 speaker-img" alt="Sergio Fernández-Artamendi">
+                <div class="carousel-caption d-none d-md-block bg-caption">
+                  <h5 class="mb-1">Sergio Fernández-Artamendi</h5>
+                  <p class="small mb-0">Grupo de Investigación en Conductas Adictivas (U. Oviedo)</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="assets/img/speakers/spk_5.jpg" class="d-block w-100 speaker-img" alt="Víctor José Villanueva">
+                <div class="carousel-caption d-none d-md-block bg-caption">
+                  <h5 class="mb-1">Víctor José Villanueva</h5>
+                  <p class="small mb-0">Red de Investigación en Atención Primaria de Adicciones (RIAPAD)</p>
+<p class="small mb-0">International Society of Substance Use Professionals</p>
+
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="assets/img/speakers/spk_6.jpg" class="d-block w-100 speaker-img" alt="Juan F. Navas">
+                <div class="carousel-caption d-none d-md-block bg-caption">
+                  <h5 class="mb-1">Juan F. Navas</h5>
+                  <p class="small mb-0">International Gambling Studies</p>
+<p class="small mb-0">Consejo Asesor de Juego Responsable. Dirección General de Ordenación del Juego</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="assets/img/speakers/spk_7.jpg" class="d-block w-100 speaker-img" alt="Olatz López-Fernández">
+                <div class="carousel-caption d-none d-md-block bg-caption">
+                  <h5 class="mb-1">Olatz López-Fernández</h5>
+                  <p class="small mb-0">Profesora Titular de la Universidad Nacional de Educación a Distancia</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="assets/img/speakers/spk_8.jpg" class="d-block w-100 speaker-img" alt="Ana López Durán">
+                <div class="carousel-caption d-none d-md-block bg-caption">
+                  <h5 class="mb-1">Ana López Durán</h5>
+                  <p class="small mb-0">Evaluación y tratamiento de las adicciones, de los trastornos del estado de ánimo, ansiedad y psicología de la salud (U. Santiago de Compostela)</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="assets/img/speakers/spk_9.jpg" class="d-block w-100 speaker-img" alt="Daria Ukhova">
+                <div class="carousel-caption d-none d-md-block bg-caption">
+                  <h5 class="mb-1"><span class="badge text-bg-info me-2" data-i18n="speakers.closing_badge">Conferencia de clausura</span>Daria Ukhova</h5>
+                  <p class="small mb-0">Lancet Public Health Commission on Gambling</p>
+<p class="small mb-0">School of Health and Wellbeing’s Social Scientists in Health (U. Glasgow)</p>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#speakersCarousel" data-bs-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden" data-i18n="common.prev">Anterior</span></button>
+            <button class="carousel-control-next" type="button" data-bs-target="#speakersCarousel" data-bs-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden" data-i18n="common.next">Siguiente</span></button>
+          </div>
+          <div class="text-end mb-3">
+            <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#allSpeakersModal" data-i18n="speakers.view_all">Ver todos los ponentes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 reveal" id="pricing">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h2 class="fw-bold" data-i18n="pricing.title">Inscripciones</h2>
+        <p class="text-muted" data-i18n="pricing.earlybird">El descuento por inscripción temprana está activo hasta el 30 de noviembre</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="card h-100 shadow-sm price-card border-primary">
+            <div class="card-body">
+              <h3 class="h5 fw-bold" data-i18n="pricing.students">Estudiantes</h3>
+              <ul class="list-unstyled mb-3 small"><li data-i18n="pricing.benefit1">Acceso a todas las sesiones</li><li data-i18n="pricing.benefit2">Certificado de asistencia</li></ul>
+              <div class="d-flex align-items-baseline gap-2"><div class="display-6 fw-bold mb-0">10€</div><div class="text-muted" data-i18n="pricing.until">hasta 30 nov</div></div>
+              <div class="text-muted" data-i18n="pricing.from">20€ · desde 1 dic</div>
+              <a href="#register" class="btn btn-primary w-100 mt-3" data-i18n="cta.register">Inscribirse</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card h-100 shadow-sm price-card">
+            <div class="card-body">
+              <h3 class="h5 fw-bold" data-i18n="pricing.general">General</h3>
+              <ul class="list-unstyled mb-3 small"><li data-i18n="pricing.benefit1">Acceso a todas las sesiones</li><li data-i18n="pricing.benefit2">Certificado de asistencia</li></ul>
+              <div class="d-flex align-items-baseline gap-2"><div class="display-6 fw-bold mb-0">15€</div><div class="text-muted" data-i18n="pricing.until">hasta 30 nov</div></div>
+              <div class="text-muted" data-i18n="pricing.from">30€ · desde 1 dic</div>
+              <a href="#register" class="btn btn-outline-primary w-100 mt-3" data-i18n="cta.register">Inscribirse</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-light reveal" id="abstracts">
+    <div class="container">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-7">
+          <h2 class="fw-bold mb-2" data-i18n="abstracts.title">Envío de trabajos</h2>
+          <p class="mb-3" data-i18n="abstracts.copy">Fecha límite 20 de noviembre. Consulta las normas para pósteres.</p>
+          <div class="d-flex gap-2">
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#posterRulesModal" data-i18n="abstracts.rules_btn">Normas para pósteres</button>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#submitInfoModal" data-i18n="abstracts.submit_btn">Presentar trabajo</button>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="p-4 border rounded-4 bg-white shadow-sm">
+            <h3 class="h6 fw-bold" data-i18n="abstracts.timeline.title">Plazos importantes</h3>
+            <ul class="mb-0 small">
+              <li data-i18n="abstracts.timeline.item1">20 nov: fin envío de trabajos</li>
+              <li data-i18n="abstracts.timeline.item2">30 nov: fin inscripción temprana</li>
+              <li data-i18n="abstracts.timeline.item3">11 dic: inicio del congreso</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 reveal" id="venue">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <h2 class="fw-bold mb-2" data-i18n="venue.title">Sede</h2>
+          <p data-i18n="venue.copy">El congreso se celebra en la Universidad Miguel Hernández de Elche, en el Edificio Valona. Elche ofrece una amplia oferta de alojamiento y restauración en el entorno del palmeral histórico.</p>
+        </div>
+        <div class="col-lg-6">
+          <div class="ratio ratio-16x9 rounded-4 shadow-sm bg-soft">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3625.673204000943!2d-0.6837784237521811!3d38.27508538318253!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd63b7ac2ff3f393%3A0xa32af0642be46e8!2sEdificio%20Valona!5e1!3m2!1ses!2ses!4v1760968983541!5m2!1ses!2ses" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-light reveal" id="organizers">
+    <div class="container">
+      <h2 class="fw-bold mb-4" data-i18n="org.title">Organiza</h2>
+      <div class="row g-4 align-items-center">
+        <div class="col-6 col-md-3 text-center"><img src="assets/img/logo_umh.jpg" class="img-fluid org-logo" alt="UMH logo"></div>
+        <div class="col-6 col-md-3 text-center"><img src="assets/img/logo_inid_horizontal.jpg" class="img-fluid org-logo" alt="INID logo"></div>
+        <div class="col-6 col-md-3 text-center"><img src="assets/img/logo_ucab.png" class="img-fluid org-logo" alt="UCAB logo"></div>
+        <div class="col-6 col-md-3 text-center"><img src="assets/img/logo_prevengo.png" class="img-fluid org-logo" alt="Prevengo Research logo"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 reveal" id="register">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <h2 class="fw-bold mb-3" data-i18n="register.title">Inscripción</h2>
+          <p class="mb-2" data-i18n="register.copy">Completa el formulario para reservar tu plaza. El pago se realizará mediante pasarela segura. Enviaremos el enlace de pago por correo si la pasarela no está integrada en el formulario.</p>
+          <ul class="small"><li data-i18n="register.item1">Plazas limitadas</li><li data-i18n="register.item2">Recibirás confirmación automática por email</li></ul>
+        </div>
+        <div class="col-lg-6">
+          <div class="gform-embed shadow-sm rounded-4">
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfeJeTaLeESInA5Askxk92B0k2tO8TA6eLJCxTIZB-wvoBNDQ/viewform?embedded=true" frameborder="0" style="border:0;width:100%;height:1800px;">Cargando…</iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-4 border-top">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+      <div class="small text-muted">© 2025 ICoHA</div>
+      <div class="d-flex gap-3 small">
+        <a href="#" data-bs-toggle="modal" data-bs-target="#legalModal" data-i18n="footer.legal">Aviso legal</a>
+        <a href="#" data-bs-toggle="modal" data-bs-target="#privacyModal" data-i18n="footer.privacy">Política de privacidad</a>
+        <a href="#" data-bs-toggle="modal" data-bs-target="#cookiesModal" data-i18n="footer.cookies">Política de cookies</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modals -->
+  <div class="modal fade" id="posterRulesModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header"><h5 class="modal-title" data-i18n="abstracts.rules_title">Normas para el envío de resúmenes y presentación de pósteres</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+        <div class="modal-body small" id="posterRulesBody">
+          <!-- We keep ES content as default; JS will replace with EN when selected -->
+          <h6 class="fw-bold">Procedimiento de envío de resúmenes de póster</h6>
+          <p><strong>Modalidad:</strong> Todas las comunicaciones deberán presentarse en formato póster.</p>
+          <p><strong>Título:</strong> En formato oración (minúsculas), evitando mayúsculas completas.</p>
+          <p><strong>Autores:</strong> Apellidos seguidos de la inicial del nombre, separados por punto y coma (p.ej., Pérez A.; López M.). Indicar institución/centro de trabajo.</p>
+          <p><strong>Tutor/a académico:</strong> Si procede (TFG/TFM), incluir el/la tutor/a.</p>
+          <p><strong>Resumen:</strong> Máx. 500 palabras. Estructura: Introducción/Objetivos, Método, Resultados (datos ya procesados), Conclusiones y dos referencias. Sin tablas ni figuras.</p>
+          <p><strong>Autor/a de contacto:</strong> Indicar nombre, apellidos y correo electrónico.</p>
+          <p><strong>Casos clínicos:</strong> Estructura: Introducción, Historia del problema/Motivo de consulta, Instrumentos de evaluación, Intervención, Resultados, Discusión y dos referencias.</p>
+          <p>Los resúmenes serán evaluados por el Comité Científico y se comunicará la aceptación al autor/a de contacto. <em>Para la aceptación es necesaria la inscripción de al menos una persona firmante.</em></p>
+          <hr>
+          <h6 class="fw-bold">Presentación de pósteres</h6>
+          <p><strong>Formato y dimensiones:</strong> DIN A0 (118,9 × 84,1 cm), orientación vertical.</p>
+          <p><strong>Encabezado:</strong> Título, autores, institución/centro de trabajo. En TFG/TFM, indicar tutor/a.</p>
+          <p><strong>Estructura del contenido:</strong> Introducción, Objetivos, Método, Resultados, Conclusiones y Referencias.</p>
+          <p><strong>Tamaño y estilo de letra:</strong> Título ≥ 26 pt (recomendado 32 pt); texto 18–26 pt.</p>
+          <p><strong>Elementos gráficos:</strong> Figuras y tablas legibles, numeradas con arábigos e integradas con el texto.</p>
+          <p>Los pósteres aceptados deberán exhibirse en el espacio asignado; el certificado se entregará si el trabajo ha sido expuesto durante las jornadas.</p>
+          <p>Se publicará un suplemento especial en la revista <em>Health and Addictions/Salud y Drogas</em> con los pósteres aceptados y presentados.</p>
+        </div>
+        <div class="modal-footer"><button class="btn btn-secondary" data-bs-dismiss="modal" data-i18n="common.close">Cerrar</button></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="submitInfoModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-md modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header"><h5 class="modal-title" data-i18n="submit.title">Información para el envío de trabajos</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+        <div class="modal-body"><p data-i18n="submit.copy">Envía tu resumen siguiendo las indicaciones de las normas para autores a <a href="mailto:info@icoha.es">info@icoha.es</a>.</p></div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal" data-i18n="common.close">Cerrar</button>
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#posterRulesModal" data-i18n="submit.view_rules">Ver normas</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="allSpeakersModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header"><h5 class="modal-title" data-i18n="speakers.modal_title">Ponentes</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+        <div class="modal-body">
+          <div class="row g-3">
+            <!-- Thumbnails grid -->
+            
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm">
+            <img src="assets/img/speakers/spk_1.jpg" class="card-img-top speaker-img" alt="Gregor Burkhart">
+            <div class="card-body p-2">
+              <div class="small fw-semibold mb-1">Gregor Burkhart</div>
+              <div class="small text-muted">Ponencia inaugural · Psicología ambiental</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm">
+            <img src="assets/img/speakers/spk_2.jpg" class="card-img-top speaker-img" alt="Luís Hidalgo Abenza">
+            <div class="card-body p-2">
+              <div class="small fw-semibold mb-1">Luís Hidalgo Abenza</div>
+              <div class="small text-muted">Nutrición, salud y rendimiento deportivo</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm">
+            <img src="assets/img/speakers/spk_3.jpg" class="card-img-top speaker-img" alt="Francisco J. Ortín Montero">
+            <div class="card-body p-2">
+              <div class="small fw-semibold mb-1">Francisco J. Ortín Montero</div>
+              <div class="small text-muted">Bienestar psicológico en el contexto deportivo</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm">
+            <img src="assets/img/speakers/spk_4.jpg" class="card-img-top speaker-img" alt="Sergio Fernández-Artamendi">
+            <div class="card-body p-2">
+              <div class="small fw-semibold mb-1">Sergio Fernández-Artamendi</div>
+              <div class="small text-muted">Cannabis, salud mental y estigma</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm">
+            <img src="assets/img/speakers/spk_5.jpg" class="card-img-top speaker-img" alt="Víctor José Villanueva">
+            <div class="card-body p-2">
+              <div class="small fw-semibold mb-1">Víctor José Villanueva</div>
+              <div class="small text-muted">Estigma y adicciones comportamentales</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm">
+            <img src="assets/img/speakers/spk_6.jpg" class="card-img-top speaker-img" alt="Juan F. Navas">
+            <div class="card-body p-2">
+              <div class="small fw-semibold mb-1">Juan F. Navas</div>
+              <div class="small text-muted">Programa de intervención escolar sobre el juego online</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm">
+            <img src="assets/img/speakers/spk_7.jpg" class="card-img-top speaker-img" alt="Olatz López-Fernández">
+            <div class="card-body p-2">
+              <div class="small fw-semibold mb-1">Olatz López-Fernández</div>
+              <div class="small text-muted">Uso de smartphones por adolescentes</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm">
+            <img src="assets/img/speakers/spk_8.jpg" class="card-img-top speaker-img" alt="Ana López Durán">
+            <div class="card-body p-2">
+              <div class="small fw-semibold mb-1">Ana López Durán</div>
+              <div class="small text-muted">Uso de APPs para dejar de fumar</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm">
+            <img src="assets/img/speakers/spk_9.jpg" class="card-img-top speaker-img" alt="Daria Ukhova">
+            <div class="card-body p-2">
+              <div class="small fw-semibold mb-1">Daria Ukhova</div>
+              <div class="small text-muted">Conferencia de clausura</div>
+            </div>
+          </div>
+        </div>
+          </div>
+        </div>
+        <div class="modal-footer"><button class="btn btn-secondary" data-bs-dismiss="modal" data-i18n="common.close">Cerrar</button></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Legal modals -->
+  <div class="modal fade" id="legalModal" tabindex="-1"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" data-i18n="footer.legal">Aviso legal</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body small"><p>Aviso legal
+1. Titular del sitio web
+
+El presente sitio web www.icoha.es
+ es titularidad de International Congress on Health and Addictions (ICoHA), con domicilio en Avda. de la Universidad s/n, 03202 Elx, España.
+Correo de contacto info@icoha.es
+
+Teléfono +34 966 658 526
+
+2. Objeto y ámbito de aplicación
+
+Este Aviso Legal regula el acceso y uso del sitio web del International Congress on Health and Addictions ICoHA y de sus contenidos. El acceso y navegación por el sitio implica la aceptación de este Aviso Legal.
+
+3. Condiciones de uso
+
+3.1. El usuario se compromete a utilizar el sitio y sus contenidos conforme a la ley, la buena fe, el orden público y estas condiciones.
+3.2. Queda prohibido cualquier uso con fines ilícitos o que pueda dañar, inutilizar o sobrecargar el sitio o impedir su normal utilización.
+3.3. La organización podrá denegar o retirar el acceso al sitio a los usuarios que incumplan estas condiciones.
+
+4. Propiedad intelectual e industrial
+
+4.1. Salvo indicación en contrario, los contenidos del sitio incluyendo denominación del congreso, logotipo, diseños, textos, imágenes, vídeos, materiales descargables y bases de datos pertenecen a International Congress on Health and Addictions ICoHA o a terceros que han autorizado su uso. Están protegidos por la normativa de propiedad intelectual e industrial.
+4.2. Se permite el uso y cita de materiales propios del congreso siempre que se indique de forma clara la fuente International Congress on Health and Addictions ICoHA y, en su caso, se mantengan los avisos de derechos. Cualquier uso distinto requerirá autorización expresa por escrito.
+4.3. El uso no autorizado de los contenidos podrá dar lugar a responsabilidades legalmente exigibles.
+
+5. Enlaces
+
+5.1. Enlaces salientes. Este sitio puede contener enlaces a páginas de terceros. ICoHA no asume responsabilidad por los contenidos o el funcionamiento de sitios ajenos ni implica relación, aprobación o respaldo con sus titulares.
+5.2. Enlaces entrantes. Se permite enlazar a www.icoha.es
+ siempre que el enlace sea directo, no se haga framing y no se utilicen signos distintivos de ICoHA sin autorización. La organización podrá solicitar la retirada de enlaces si así lo considera.
+
+6. Responsabilidad y garantías
+
+6.1. ICoHA no garantiza la disponibilidad, continuidad ni infalibilidad del funcionamiento del sitio ni la ausencia de virus u otros elementos lesivos. El usuario navega por su cuenta y riesgo.
+6.2. Se realizarán esfuerzos razonables para mantener la información actualizada y exacta sin que ello suponga garantía de ausencia de errores u omisiones.
+6.3. ICoHA no responderá por daños y perjuicios derivados de interferencias, interrupciones, averías, virus, desconexiones, sobrecargas, fallos de la red o de terceros ni por actos u omisiones de los usuarios contrarios a la ley o a este Aviso Legal.
+
+7. Inscripciones, pagos y materiales del congreso
+
+7.1. La contratación de inscripciones se realiza en línea a través de la web utilizando la plataforma de pagos de la Universidad Miguel Hernández de Elche conforme a sus condiciones.
+7.2. Política de cancelaciones y devoluciones. No se realizan devoluciones.
+7.3. Fotografías y grabaciones. Durante el congreso podrán realizarse fotografías y grabaciones con fines de promoción del congreso. Las condiciones aplicables al tratamiento de datos de imagen se detallan en la Política de Privacidad.
+
+8. Protección de datos personales
+
+8.1. Responsable del tratamiento. International Congress on Health and Addictions ICoHA. Contacto info@icoha.es
+
+8.2. Finalidades. Gestión de inscripciones, comunicaciones informativas relacionadas con el evento y acreditaciones.
+8.3. Bases jurídicas. Ejecución de contrato para la gestión de la inscripción. Consentimiento del interesado para envíos informativos no estrictamente necesarios y para comunicaciones posteriores sobre nuevas ediciones. Interés legítimo de la organización para fines de seguridad y para la difusión institucional mediante imágenes captadas durante el evento respetando los derechos de imagen.
+8.4. Encargados del tratamiento y proveedores. Se utiliza Google Forms para la gestión de formularios. Los servicios de alojamiento y publicación del sitio se prestan a través de IONOS y GitHub a efectos de infraestructura. Cada proveedor actúa conforme a sus términos de servicio y políticas de privacidad.
+8.5. Transferencias internacionales. No se prevén transferencias internacionales de datos fuera del Espacio Económico Europeo. En caso de que determinados servicios impliquen transferencias, se aplicarán garantías adecuadas como las Cláusulas Contractuales Tipo.
+8.6. Conservación. Los datos se conservarán durante el desarrollo de la actividad del congreso y, posteriormente, durante el tiempo estrictamente necesario para atender posibles responsabilidades derivadas de la organización.
+8.7. Derechos. Las personas interesadas pueden ejercer sus derechos de acceso, rectificación, supresión, oposición, limitación del tratamiento y portabilidad dirigiéndose a info@icoha.es
+. También pueden presentar una reclamación ante la autoridad de control competente.
+8.8. Información ampliada. La información completa está disponible en la Política de Privacidad en www.icoha.es/privacidad
+
+9. Cookies y analítica
+
+El sitio utiliza cookies técnicas necesarias para su funcionamiento y para mostrar contenidos incrustados como formularios. No se emplean cookies de analítica o publicidad salvo que se indiquen y obtenga el consentimiento del usuario. El usuario puede obtener información detallada, gestionar sus preferencias y revocar el consentimiento en la Política de Cookies en www.icoha.es/cookies
+
+10. Menores de edad y público objetivo
+
+El evento está dirigido al público general. La participación de menores requiere que acudan acompañados de una persona adulta responsable. En los formularios que impliquen tratamiento de datos de menores se aplicarán las previsiones específicas de la Política de Privacidad.
+
+11. Organización académica
+
+La responsabilidad académica del congreso recae en la Universidad Miguel Hernández de Elche. La celebración del evento está prevista en Elche, España.
+
+12. Modificaciones
+
+ICoHA se reserva el derecho a modificar, actualizar o eliminar en cualquier momento la presentación, configuración y contenidos del sitio y el presente Aviso Legal. Las modificaciones serán aplicables desde su publicación.
+
+13. Legislación aplicable y jurisdicción
+
+Este Aviso Legal se rige por la legislación española. Para cualquier controversia derivada del acceso o uso del sitio, las partes se someten a los Juzgados y Tribunales de Elche, Alicante, salvo que la normativa de consumidores disponga otro fuero imperativo.
+Plataforma europea de resolución de litigios en línea disponible en https://ec.europa.eu/consumers/odr
+
+14. Contacto
+
+Para consultas relacionadas con este Aviso Legal puedes escribir a info@icoha.es
+
+Última actualización octubre de 2025.</p></div></div></div></div>
+  <div class="modal fade" id="privacyModal" tabindex="-1"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" data-i18n="footer.privacy">Política de privacidad</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body small"><p>1. Responsable del tratamiento
+
+International Congress on Health and Addictions ICoHA
+Avda. de la Universidad s/n, 03202 Elx, España
+Email de contacto info@icoha.es
+
+Teléfono +34 966 658 526
+Sitio web www.icoha.es
+
+2. Finalidades del tratamiento
+
+2.1. Gestión de inscripciones y participación en el congreso, incluida la emisión de certificados y la atención de consultas.
+2.2. Envío de comunicaciones relacionadas con el evento, recordatorios operativos y encuestas de satisfacción.
+2.3. Acreditación de ponentes, prensa y personas colaboradoras.
+2.4. Difusión institucional del congreso mediante fotografías y grabaciones realizadas durante las actividades.
+2.5. Seguridad del sitio web y mantenimiento técnico.
+
+3. Categorías de datos
+
+Identificativos y de contacto. Datos profesionales o de afiliación académica. Datos de facturación si fueran necesarios. Imagen y voz en el contexto de la cobertura audiovisual del evento. Datos de navegación necesarios para seguridad y funcionamiento del sitio.
+
+4. Bases jurídicas
+
+4.1. Ejecución de un contrato o medidas precontractuales para gestionar la inscripción y la asistencia.
+4.2. Cumplimiento de obligaciones legales en materia fiscal y contable si procediera la facturación.
+4.3. Consentimiento del interesado para comunicaciones no estrictamente necesarias y para comunicaciones sobre futuras ediciones. Podrás retirarlo en cualquier momento.
+4.4. Interés legítimo de ICoHA para la seguridad del sitio y la difusión institucional mediante imágenes captadas en actividades abiertas, valorando proporcionalidad y expectativa razonable. Se facilitarán canales de oposición cuando sea posible.
+
+5. Procedencia
+
+Los datos proceden de las personas interesadas a través de los formularios del sitio o del contacto directo con la organización.
+
+6. Destinatarios
+
+6.1. Universidad Miguel Hernández de Elche para la gestión de pagos en su propia plataforma, que tratará los datos bajo su responsabilidad y conforme a sus políticas.
+6.2. Proveedores que actúan por cuenta de ICoHA como encargados del tratamiento:
+a) Google Forms para la gestión de formularios.
+b) Servicios de alojamiento y publicación web en IONOS y GitHub para la infraestructura del sitio.
+En todos los casos se suscribirán las condiciones aplicables para garantizar la confidencialidad y seguridad.
+6.3. Administraciones públicas y autoridades competentes cuando exista obligación legal.
+
+7. Transferencias internacionales
+
+No se prevén transferencias internacionales fuera del Espacio Económico Europeo. En caso de que algún servicio las implicara, se aplicarían garantías adecuadas como las Cláusulas Contractuales Tipo y medidas adicionales de seguridad.
+
+8. Conservación de los datos
+
+Durante el desarrollo de la actividad del congreso y el tiempo estrictamente necesario para atender posibles responsabilidades, auditorías o defensa de reclamaciones. Los datos utilizados para envíos informativos se conservarán mientras no retires tu consentimiento.
+
+9. Derechos de las personas interesadas
+
+Puedes ejercer acceso, rectificación, supresión, oposición, limitación y portabilidad escribiendo a info@icoha.es
+ e indicando el derecho que deseas ejercer. Si consideras que no se han atendido tus derechos, puedes reclamar ante la Agencia Española de Protección de Datos.
+
+10. Tratamiento de imágenes
+
+En el congreso pueden realizarse fotografías y grabaciones con fines informativos y de difusión institucional. Si no deseas aparecer de forma identificable, comunícalo en acreditación o a través de info@icoha.es
+. Se evitarán planos focalizados sin consentimiento cuando sea razonablemente posible y se atenderán solicitudes de retirada de contenidos publicados por la organización.
+
+11. Menores
+
+La participación de menores requiere que acudan acompañados de una persona adulta responsable. No se recaban datos de menores de 14 años sin consentimiento verificable de sus progenitores o tutores.
+
+12. Seguridad
+
+Se aplican medidas técnicas y organizativas adecuadas para preservar la confidencialidad, integridad y disponibilidad de la información, incluido control de accesos, cifrado de comunicaciones y gestión de copias de seguridad.
+
+13. Datos de terceros
+
+Si facilitas datos de terceras personas, garantizas haber informado previamente y haber obtenido su autorización cuando sea necesario.
+
+14. Cambios en la política
+
+Podremos actualizar esta Política de Privacidad para reflejar cambios legales u organizativos. Las modificaciones serán aplicables desde su publicación en esta página.
+
+Última actualización octubre de 2025.</p></div></div></div></div>
+  <div class="modal fade" id="cookiesModal" tabindex="-1"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" data-i18n="footer.cookies">Política de cookies</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body small"><p>1. ¿Qué son las cookies?
+
+Las cookies son pequeños archivos que se almacenan en tu dispositivo cuando navegas por un sitio web. Sirven para garantizar el funcionamiento seguro y eficiente de la página, recordar ciertas preferencias y, si se habilitan, para realizar analítica o personalización.
+
+2. ¿Qué cookies utiliza www.icoha.es
+?
+
+ICoHA utiliza por defecto únicamente cookies técnicas necesarias para que el sitio funcione y para mostrar contenidos incrustados como formularios. No empleamos cookies de analítica ni de publicidad sin tu consentimiento previo.
+
+Tipos que pueden estar presentes:
+2.1. Cookies técnicas o necesarias. Permiten la navegación, la carga equilibrada del sitio, la seguridad y la gestión de formularios.
+2.2. Cookies de preferencia o personalización. Recuerdan elecciones básicas del usuario como el idioma, si esta función se habilita.
+2.3. Cookies de terceros asociadas a servicios incrustados. Al integrar Google Forms pueden instalarse cookies técnicas de Google para seguridad y prevención del fraude.
+
+Si en el futuro se habilitan cookies de medición o marketing, se solicitará tu consentimiento a través del banner de cookies, con información clara y opciones de configuración.
+
+3. Detalle orientativo de cookies
+
+La siguiente tabla describe de forma orientativa las categorías que pueden utilizarse en el sitio:
+
+Finalidad técnica. Propias de www.icoha.es
+. Sesión. Necesarias para el funcionamiento y la seguridad.
+
+Servicios incrustados. Terceros, por ejemplo Google, cuando se usa Google Forms en páginas de inscripción. Pueden tener duraciones de sesión o persistentes según el servicio. Finalidad de seguridad, prevención de fraude y gestión del servicio.
+
+Consulta la política de cookies y privacidad del proveedor correspondiente para información detallada sobre sus tecnologías.
+
+4. Gestión del consentimiento
+
+4.1. Cookies necesarias. Se instalan por ser imprescindibles para el funcionamiento del sitio.
+4.2. Resto de cookies. No se instalarán sin tu consentimiento. Siempre podrás cambiar tu elección desde el enlace de configuración de cookies que se mostrará en el pie de página cuando estas categorías estén activas.
+
+5. Cómo deshabilitar o eliminar cookies en tu navegador
+
+Puedes permitir, bloquear o eliminar las cookies configurando tu navegador. Estos son los caminos habituales:
+
+Chrome. Configuración, Privacidad y seguridad, Cookies y otros datos de sitios.
+
+Firefox. Ajustes, Privacidad y seguridad, Cookies y datos del sitio.
+
+Edge. Configuración, Cookies y permisos de sitio.
+
+Safari. Preferencias, Privacidad, Gestionar datos de sitios web.
+
+6. Cookies de terceros
+
+Al usar servicios de terceros integrados, estos pueden establecer sus propias cookies. Te recomendamos revisar sus políticas:
+
+Google Forms y servicios relacionados. Consulta sus términos y política de privacidad para conocer el uso de cookies y tecnologías similares.
+
+7. Actualizaciones de la política
+
+Esta política puede actualizarse para reflejar cambios en el uso de cookies o en la normativa aplicable. Las modificaciones serán aplicables desde su publicación en esta página.
+
+Última actualización octubre de 2025.</p></div></div></div></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

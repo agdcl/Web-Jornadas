@@ -1,0 +1,32 @@
+
+html{scroll-behavior:smooth}
+:root{ --brand-blue:#0b5ed7; --brand-green:#1e9e72; --mint:#33c79f; }
+body{font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;}
+.hero{
+  position:relative; min-height:72vh;
+  background:
+    radial-gradient(1100px 550px at 15% 15%, rgba(11,94,215,.28), transparent 60%),
+    radial-gradient(1000px 500px at 85% 85%, rgba(30,158,114,.28), transparent 60%),
+    linear-gradient(135deg, rgba(11,94,215,.88), rgba(30,158,114,.88)),
+    url('../img/hero_brain.png');
+  background-size: cover; background-position: center;
+}
+.hero-overlay{position:absolute; inset:0; background: linear-gradient(0deg, rgba(0,0,0,.35), rgba(0,0,0,.25)); pointer-events:none;}
+.org-logo{max-height:72px; object-fit:contain; filter: drop-shadow(0 1px 0 rgba(0,0,0,.05));}
+.promo-card, .benefit-card{border:1px solid rgba(0,0,0,.075); border-radius:.75rem; background:#fff;}
+.bg-soft{background: linear-gradient(135deg, rgba(11,94,215,.08), rgba(30,158,114,.08));}
+.price-card{border-radius:.75rem;}
+/* Google Form embed full height */
+.gform-embed{min-height: 1800px; background:#fff; overflow:visible;}
+/* Reveal */
+.reveal{opacity:0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease;}
+.revealed{opacity:1; transform:none;}
+/* Carousel captions + speaker images (keep faces centered) */
+.bg-caption{background:rgba(0,0,0,.45); padding:.5rem .75rem; border-radius:.5rem;}
+.speaker-img{aspect-ratio:16/9; object-fit:cover; object-position:center 20%; border-radius:.75rem;}
+/* Mint buttons with animation */
+.btn-mint{background: var(--mint); color:#fff; padding:.85rem 1rem; border-radius:.75rem; box-shadow: 0 .5rem 1rem rgba(51,199,159,.25);}
+.btn-mint .small{opacity:.95}
+.animate-pop{transform: translateY(0); transition: transform .2s ease, box-shadow .2s ease;}
+.animate-pop:hover{transform: translateY(-3px); box-shadow: 0 .75rem 1.25rem rgba(51,199,159,.3);}
+.lang-btn{min-width:64px}

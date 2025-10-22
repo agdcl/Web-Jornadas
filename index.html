@@ -20,6 +20,47 @@
       .carousel-caption p{ font-size: .8rem; margin-bottom: .15rem; }
       .bg-caption{ background: rgba(0,0,0,.60); backdrop-filter: saturate(120%) blur(4px); border-radius: .5rem; }
     }
+	  /* SPEAKERS CAROUSEL: más alto en móvil y sin que el texto tape la imagen */
+#speakersCarousel .speaker-img{
+  width: 100%;
+  height: clamp(380px, 72vh, 780px);
+  object-fit: cover;
+  /* Suele ayudar a mantener el rostro visible */
+  object-position: center 15%;
+}
+
+/* Reserva espacio bajo la foto para el caption en pantallas pequeñas */
+@media (max-width: 576px){
+  #speakersCarousel .carousel-item{ position: relative; }
+  #speakersCarousel .carousel-item::after{
+    content: "";
+    display: block;
+    height: 5.5rem; /* altura reservada para el texto */
+  }
+  #speakersCarousel .carousel-caption{
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: .5rem .75rem;
+  }
+  #speakersCarousel .bg-caption{
+    background: linear-gradient(to top, rgba(0,0,0,.7), rgba(0,0,0,.35), transparent);
+    border-radius: .5rem;
+  }
+}
+
+/* Ajustes para tablets */
+@media (min-width: 577px) and (max-width: 991.98px){
+  #speakersCarousel .speaker-img{ height: clamp(420px, 60vh, 720px); }
+  #speakersCarousel .carousel-item::after{ height: 4rem; }
+}
+
+/* Escritorio */
+@media (min-width: 992px){
+  #speakersCarousel .speaker-img{ height: 520px; }
+  #speakersCarousel .carousel-item::after{ height: 0; } /* ya no hace falta reservar espacio */
+}
+
   </style>
 
 </head>

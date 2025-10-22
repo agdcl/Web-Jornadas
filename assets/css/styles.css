@@ -30,30 +30,3 @@ body{font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 
 .animate-pop{transform: translateY(0); transition: transform .2s ease, box-shadow .2s ease;}
 .animate-pop:hover{transform: translateY(-3px); box-shadow: 0 .75rem 1.25rem rgba(51,199,159,.3);}
 .lang-btn{min-width:64px}
-/* Igualar alturas y empezar al mismo nivel en escritorio */
-#divulga .equal-box {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-/* Contenedor de imagen con bordes redondeados y recorte elegante */
-#divulga .image-box {
-  border-radius: 1rem;         /* bordes redondeados */
-  overflow: hidden;            /* recorta la imagen al radio */
-}
-
-/* La imagen rellena la altura del bloque y mantiene composición */
-#divulga .image-box img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;           /* recorte para igualar altura con el texto */
-  display: block;
-}
-
-/* Solo forzamos igualación de alturas a partir de md */
-@media (max-width: 767.98px) {
-  #divulga .equal-box {
-    height: auto;              /* en móvil, apilado natural */
-  }
-}

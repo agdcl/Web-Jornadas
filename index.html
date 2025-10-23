@@ -88,8 +88,10 @@
   box-shadow: 0 0 0 .25rem rgba(13,110,253,.4);
 }
 
-
-
+/* Bio del modal de detalle: respeta saltos de línea y siempre visible */
+.speaker-detail-bio{
+  white-space: pre-line;
+}
   </style>
 
 </head>
@@ -155,7 +157,7 @@
           </div>
           <div class="p-3 promo-card">
             <h3 class="h6 fw-bold mb-1" data-i18n="about.when_where.title">Cuándo y dónde</h3>
-            <p class="mb-2" data-i18n="about.when_where.copy">11 de diciembre (16:00–20:00) y 12 de diciembre (9:00–14:00), Universidad Miguel Hernández, Elche. Ed. Valona (localización provisional).</<p>
+            <p class="mb-2" data-i18n="about.when_where.copy">11 de diciembre (16:00–20:00) y 12 de diciembre (9:00–14:00), Universidad Miguel Hernández, Elche. Ed. Valona (localización provisional).</p>
             <ul class="small mb-0">
               <li data-i18n="about.when_where.item1">Presencial</li>
               <li data-i18n="about.when_where.item2">Certificado de asistencia</li>
@@ -626,6 +628,29 @@
   </div>
 </div>
 
+<!-- Modal de detalle de ponente -->
+<div class="modal fade" id="speakerDetailModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div>
+          <h5 class="modal-title speaker-detail-title">Ponente</h5>
+          <div class="small text-muted speaker-detail-subtitle"></div>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        <div class="d-flex gap-3 align-items-start flex-wrap">
+          <img src="" alt="" class="rounded speaker-detail-img" style="width:160px;height:160px;object-fit:cover;">
+          <div class="speaker-detail-bio"></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
 
   <!-- Legal modals -->
   <div class="modal fade" id="legalModal" tabindex="-1"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" data-i18n="footer.legal">Aviso legal</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body small"><p>Aviso legal
@@ -843,6 +868,77 @@ Esta política puede actualizarse para reflejar cambios en el uso de cookies o e
 Última actualización octubre de 2025.</p></div></div></div></div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Integración: click en speaker abre modal de detalle con bio -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const allModalEl = document.getElementById('allSpeakersModal');
+    const detailModalEl = document.getElementById('speakerDetailModal');
+
+    if (!allModalEl || !detailModalEl) return;
+
+    let pendingDetail = null;
+
+    // Click en tarjeta de ponente
+    allModalEl.addEventListener('click', function (e) {
+      const card = e.target.closest('.speaker-card');
+      if (!card) return;
+
+      // Lee primero el atributo crudo por si hay comillas o entidades
+      const name = card.getAttribute('data-name') || card.dataset.name || '';
+      const subtitle = card.getAttribute('data-subtitle') || card.dataset.subtitle || '';
+      const img = card.getAttribute('data-img') || card.dataset.img || (card.querySelector('img')?.src ?? '');
+      let bio = card.getAttribute('data-bio') || card.dataset.bio || '';
+
+      // Fallback: bloque oculto con HTML rico
+      if (!bio) {
+        const hidden = card.querySelector('.speaker-bio');
+        if (hidden) bio = hidden.innerHTML.trim();
+      }
+
+      pendingDetail = { name, subtitle, img, bio };
+
+      const allModal = bootstrap.Modal.getOrCreateInstance(allModalEl);
+      allModal.hide();
+    });
+
+    // Accesibilidad: Enter o espacio activan la tarjeta enfocada
+    allModalEl.addEventListener('keydown', function (e) {
+      if ((e.key === 'Enter' || e.key === ' ') && e.target.classList.contains('speaker-card')) {
+        e.preventDefault();
+        e.target.click();
+      }
+    });
+
+    // Al cerrar el modal de lista, abrir el de detalle con los datos
+    allModalEl.addEventListener('hidden.bs.modal', function () {
+      if (!pendingDetail) return;
+
+      detailModalEl.querySelector('.speaker-detail-title').textContent = pendingDetail.name || 'Ponente';
+      detailModalEl.querySelector('.speaker-detail-subtitle').textContent = pendingDetail.subtitle || '';
+
+      const imgEl = detailModalEl.querySelector('.speaker-detail-img');
+      imgEl.src = pendingDetail.img || '';
+      imgEl.alt = pendingDetail.name || 'Ponente';
+
+      const bioEl = detailModalEl.querySelector('.speaker-detail-bio');
+      const looksLikeHtml = /<\w+[^>]*>/.test(pendingDetail.bio || '');
+      if (looksLikeHtml) {
+        bioEl.innerHTML = pendingDetail.bio;
+      } else {
+        bioEl.innerHTML = (pendingDetail.bio && pendingDetail.bio.trim().length)
+          ? pendingDetail.bio.replace(/\n/g, '<br>')
+          : '<span class="text-muted">Descripción no disponible.</span>';
+      }
+
+      const detailModal = bootstrap.Modal.getOrCreateInstance(detailModalEl);
+      detailModal.show();
+
+      pendingDetail = null;
+    });
+  });
+  </script>
+
   <script src="assets/js/main.js"></script>
 </body>
 </html>

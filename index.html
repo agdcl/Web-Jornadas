@@ -87,6 +87,33 @@
 
     /* Bio del modal de detalle: respeta saltos de línea y siempre visible */
     .speaker-detail-bio{ white-space: pre-line; }
+	  /* Ancho fijo moderado en escritorio, fluido en móvil */
+#program .modal-dialog{
+  max-width: 760px;              /* ajusta este valor a tu gusto, p. ej. 700–820px */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Que la imagen se vea completa sin scroll vertical */
+#program .program-img{
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: calc(100vh - 150px); /* margen para header y footer del modal */
+  object-fit: contain;
+}
+
+/* Sin espacios extra alrededor de la imagen */
+#program .modal-body{ padding: 0; }
+
+/* Evita barras de desplazamiento internas */
+#program .modal-content{ overflow: hidden; }
+
+/* En pantallas pequeñas, que ocupe bien el ancho disponible */
+@media (max-width: 991.98px){
+  #program .modal-dialog{ max-width: 92vw; }
+}
+
   </style>
 
 </head>
@@ -477,8 +504,8 @@
 	
 	<!-- NUEVOS: Modal de Programa -->
   <div class="modal fade" id="program" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable modal-fullscreen-sm-down">
-    <div class="modal-content">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content program-modal">
       <div class="modal-header">
         <h5 class="modal-title" data-i18n="program">Programa</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
@@ -492,6 +519,7 @@
     </div>
   </div>
 </div>
+
 
   <!-- NUEVOS: Modales de Comités -->
   <div class="modal fade" id="scientificCommitteeModal" tabindex="-1" aria-hidden="true">

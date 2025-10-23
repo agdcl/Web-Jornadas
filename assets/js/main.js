@@ -1,8 +1,12 @@
-
 // Reveal on scroll
 (function(){
   const obs = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('revealed'); obs.unobserve(e.target);} });
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('revealed');
+        obs.unobserve(e.target);
+      }
+    });
   }, {threshold: 0.12});
   document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 })();
@@ -22,10 +26,12 @@ const I18N = {
     "about.benefit1.title":"Networking","about.benefit1.copy":"Connect with researchers, clinicians and program leads.",
     "about.benefit2.title":"International speakers","about.benefit2.copy":"Leading perspectives in health and addictions.",
     "about.benefit3.title":"Up-to-date science","about.benefit3.copy":"Applied to prevention and health promotion.",
-    "about.science.dissemination":"Science dissemination", "about.science1":"This congress dedicates a space to scientific dissemination accessible to all, with the aim of converting the best evidence into clear, useful and responsible knowledge. We translate research results into understandable messages, without losing rigour, so that families, students, professionals and the media can interpret data, distinguish evidence from opinion and make informed decisions.",
+    "about.science.dissemination":"Science dissemination",
+    "about.science1":"This congress dedicates a space to scientific dissemination accessible to all, with the aim of converting the best evidence into clear, useful and responsible knowledge. We translate research results into understandable messages, without losing rigour, so that families, students, professionals and the media can interpret data, distinguish evidence from opinion and make informed decisions.",
     "about.science2":"Through practical examples and debunking common myths about health and addictions, we bring science closer to the public so that the public conversation is based on facts rather than headlines.",
     "about.science3":"In this edition, we will have the participation of Marta Saiz, independent journalist specialising in human rights and head of communications for the LasDrogas.info portal.",
-    "about.xperiences.projects":"Experiences and projects","about.xperiences1":"This section brings together first-person experiences and health projects that put a face to the data and show how evidence translates into real change. With a respectful and non-stigmatising approach, it shares learnings, challenges and good practices in prevention, treatment and risk reduction. The aim is to inspire and connect professionals, students, families and the community, offering stories and cases that provide useful tools and evidence-based approaches to improve decision-making and collective well-being.",
+    "about.xperiences.projects":"Experiences and projects",
+    "about.xperiences1":"This section brings together first-person experiences and health projects that put a face to the data and show how evidence translates into real change. With a respectful and non-stigmatising approach, it shares learnings, challenges and good practices in prevention, treatment and risk reduction. The aim is to inspire and connect professionals, students, families and the community, offering stories and cases that provide useful tools and evidence-based approaches to improve decision-making and collective well-being.",
     "about.xperiences2":"This year's edition will feature Arkano, a rapper and freestyler from Alicante who is recognised as one of the key figures in Spanish hip hop. He was national Red Bull Batalla champion at the age of 15 in 2009 and won again in 2015, the year he was crowned international champion in Chile. He also set a Guinness World Record by improvising for 24 hours 34 minutes and 27 seconds and has participated in television and cultural outreach projects, as well as collaborating with pop and rock artists in Spain.",
     "about.xperiences3":"Arkano will talk about his experience with addictions and his personal project of abstinence and change of life.",
     "about.when_where.title":"When and where",
@@ -47,14 +53,18 @@ const I18N = {
     "submit.copy":"Send your abstract following the author guidelines to <a href='mailto:info@icoha.es'>info@icoha.es</a>.",
     "submit.view_rules":"View guidelines",
     "common.prev":"Previous","common.next":"Next","common.close":"Close",
-    "poster":"Accepted posters may be submitted in extended form for publication in a special issue of the scientific journal <a href="https://www.haaj.org/?journal=haaj&page=index">Health and Addictions/Salud y Drogas (HAAJ) ISSN: 1578-5319/ISSNe 1988-205X</a>",
-    "nav.scicommittee":"Scientific Committee", "nav.orgcommittee":"Organising committee",
+    "poster": 'Accepted posters may be submitted in extended form for publication in a special issue of the scientific journal <a href="https://www.haaj.org/?journal=haaj&page=index">Health and Addictions/Salud y Drogas (HAAJ) ISSN: 1578-5319/ISSNe 1988-205X</a>',
+    "nav.scicommittee":"Scientific Committee",
+    "nav.orgcommittee":"Organising committee"
   }
 };
+
 let currentLang = 'es';
+
 function setLang(lang){
-  currentLang = (lang==='en') ? 'en' : 'es';
-  if(currentLang==='en'){
+  currentLang = (lang === 'en') ? 'en' : 'es';
+
+  if (currentLang === 'en') {
     const map = I18N.en;
     document.querySelectorAll('[data-i18n]').forEach(el=>{
       const k = el.getAttribute('data-i18n');
@@ -62,7 +72,9 @@ function setLang(lang){
     });
     // Replace poster rules body with brief EN summary
     const body = document.getElementById('posterRulesBody');
-    if(body){ if(!body.dataset.esHtml){ body.dataset.esHtml = body.innerHTML.trim(); } body.innerHTML = `
+    if (body) {
+      if (!body.dataset.esHtml) { body.dataset.esHtml = body.innerHTML.trim(); }
+      body.innerHTML = `
         <h6 class="fw-bold">How to submit your poster abstract</h6>
         <p><strong>Format:</strong> Poster only.</p>
         <p><strong>Abstract (max 500 words):</strong> Introduction/Objectives, Method, Results (processed data), Conclusions and two references. No tables or figures.</p>
@@ -76,38 +88,49 @@ function setLang(lang){
         <p>Accepted posters must be displayed in the assigned area. A supplement in <em>Health and Addictions/Salud y Drogas</em> will include accepted and presented posters.</p>
       `;
     }
-  }else{
-    // restore ES from data-i18n-es snapshot or keep current text as ES baseline
+  } else {
+    // Restore ES from snapshot
     document.querySelectorAll('[data-i18n]').forEach(el=>{
       const es = el.getAttribute('data-i18n-es');
-      if(es!=null) el.innerHTML = es;
+      if (es != null) el.innerHTML = es;
     });
-    // restore ES detailed rules already in DOM on load
+    const body = document.getElementById('posterRulesBody');
+    if (body && body.dataset.esHtml) {
+      body.innerHTML = body.dataset.esHtml;
+    }
   }
+
   document.documentElement.lang = currentLang;
-  const body = document.getElementById('posterRulesBody');
-  if(body && body.dataset.esHtml){ body.innerHTML = body.dataset.esHtml; }
 }
+
 document.addEventListener('DOMContentLoaded', ()=>{
   // Snapshot ES text content for all translatable elements
   document.querySelectorAll('[data-i18n]').forEach(el=>{
-    if(!el.hasAttribute('data-i18n-es')) el.setAttribute('data-i18n-es', el.innerHTML.trim());
-  
-  // Snapshot ES of poster rules body
+    if(!el.hasAttribute('data-i18n-es')){
+      el.setAttribute('data-i18n-es', el.innerHTML.trim());
+    }
+  });
+
+  // Snapshot ES of poster rules body (once)
   const posterBody = document.getElementById('posterRulesBody');
   if (posterBody && !posterBody.dataset.esHtml) {
     posterBody.dataset.esHtml = posterBody.innerHTML.trim();
-  }});
-  // Smooth-scroll fix for hero buttons (in case overlay interfered on some browsers)
+  }
+
+  // Smooth-scroll for in-page anchors
   document.querySelectorAll('a[href^="#"]').forEach(a=>{
     a.addEventListener('click', (e)=>{
       const id = a.getAttribute('href');
-      if(id.length>1 && document.querySelector(id)){
-        e.preventDefault();
-        document.querySelector(id).scrollIntoView({behavior:'smooth'});
+      if(id.length>1){
+        const target = document.querySelector(id);
+        if(target){
+          e.preventDefault();
+          target.scrollIntoView({behavior:'smooth'});
+        }
       }
     });
   });
+
   // Language buttons
   document.querySelectorAll('.lang-btn').forEach(btn=>{
     btn.addEventListener('click', ()=> setLang(btn.dataset.lang));

@@ -46,7 +46,8 @@ const I18N = {
     "submit.title":"Submission information",
     "submit.copy":"Send your abstract following the author guidelines to <a href='mailto:info@icoha.es'>info@icoha.es</a>.",
     "submit.view_rules":"View guidelines",
-    "common.prev":"Previous","common.next":"Next","common.close":"Close"
+    "common.prev":"Previous","common.next":"Next","common.close":"Close",
+    "poster":"Accepted posters may be submitted in extended form for publication in a special issue of the scientific journal <a href="https://www.haaj.org/?journal=haaj&page=index">Health and Addictions/Salud y Drogas (HAAJ) ISSN: 1578-5319/ISSNe 1988-205X"
   }
 };
 let currentLang = 'es';

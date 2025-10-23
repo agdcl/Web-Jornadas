@@ -60,6 +60,35 @@
   #speakersCarousel .speaker-img{ height: 520px; }
   #speakersCarousel .carousel-item::after{ height: 0; } /* ya no hace falta reservar espacio */
 }
+	  
+/* Tarjetas de ponentes con borde iluminado al hover/focus */
+.speaker-card{
+  border-radius: .75rem;
+  overflow: hidden;
+  transition: box-shadow .2s ease, transform .2s ease, border-color .2s ease;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+.speaker-card:hover,
+.speaker-card:focus{
+  border-color: var(--bs-primary);
+  box-shadow: 0 0 0 .25rem rgba(13,110,253,.25);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+/* Asegura encuadre bonito de las fotos */
+.speaker-img{
+  object-fit: cover;
+  aspect-ratio: 1 / 1;     /* cuadrada */
+}
+
+/* Accesibilidad en teclado */
+.speaker-card:focus-visible{
+  box-shadow: 0 0 0 .25rem rgba(13,110,253,.4);
+}
+
+
 
   </style>
 

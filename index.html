@@ -442,109 +442,160 @@
     </div>
   </div>
 
-  <div class="modal fade" id="allSpeakersModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-xl modal-dialog-scrollable">
-      <div class="modal-content">
-        <div class="modal-header"><h5 class="modal-title" data-i18n="speakers.modal_title">Ponentes</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
-        <div class="modal-body">
-          <div class="row g-3">
-            <!-- Thumbnails grid -->
-            
-        <div class="col-6 col-md-4 col-lg-3">
-          <div class="card h-100 shadow-sm">
-            <img src="assets/img/speakers/spk_1.jpg" class="card-img-top speaker-img" alt="Gregor Burkhart">
-            <div class="card-body p-2">
-              <div class="small fw-semibold mb-1">Gregor Burkhart</div>
-              <div class="small text-muted">Ponencia inaugural · Psicología ambiental</div>
-            </div>
-          </div>
-        </div>
+ <div class="modal fade" id="allSpeakersModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" data-i18n="speakers.modal_title">Ponentes</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
 
-        <div class="col-6 col-md-4 col-lg-3">
-          <div class="card h-100 shadow-sm">
-            <img src="assets/img/speakers/spk_2.jpg" class="card-img-top speaker-img" alt="Luís Hidalgo Abenza">
-            <div class="card-body p-2">
-              <div class="small fw-semibold mb-1">Luís Hidalgo Abenza</div>
-              <div class="small text-muted">Nutrición, salud y rendimiento deportivo</div>
+      <div class="modal-body">
+        <div class="row g-3">
+          <!-- Gregor -->
+          <div class="col-6 col-md-4 col-lg-3">
+            <div class="card h-100 shadow-sm speaker-card" role="button" tabindex="0"
+                 data-name="Gregor Burkhart"
+                 data-subtitle="Ponencia inaugural · Psicología ambiental"
+                 data-img="assets/img/speakers/spk_1.jpg"
+                 data-bio="Descripción del ponente. Amplía aquí con 3–4 líneas sobre su charla y trayectoria.">
+              <img src="assets/img/speakers/spk_1.jpg" class="card-img-top speaker-img" alt="Gregor Burkhart">
+              <div class="card-body p-2">
+                <div class="small fw-semibold mb-1">Gregor Burkhart</div>
+                <div class="small text-muted">Ponencia inaugural · Psicología ambiental</div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="col-6 col-md-4 col-lg-3">
-          <div class="card h-100 shadow-sm">
-            <img src="assets/img/speakers/spk_3.jpg" class="card-img-top speaker-img" alt="Francisco J. Ortín Montero">
-            <div class="card-body p-2">
-              <div class="small fw-semibold mb-1">Francisco J. Ortín Montero</div>
-              <div class="small text-muted">Bienestar psicológico en el contexto deportivo</div>
+          <!-- Luís -->
+          <div class="col-6 col-md-4 col-lg-3">
+            <div class="card h-100 shadow-sm speaker-card" role="button" tabindex="0"
+                 data-name="Luís Hidalgo Abenza"
+                 data-subtitle="Nutrición, salud y rendimiento deportivo"
+                 data-img="assets/img/speakers/spk_2.jpg"
+                 data-bio="Descripción del ponente. Enfatiza aplicaciones prácticas y evidencia científica.">
+              <img src="assets/img/speakers/spk_2.jpg" class="card-img-top speaker-img" alt="Luís Hidalgo Abenza">
+              <div class="card-body p-2">
+                <div class="small fw-semibold mb-1">Luís Hidalgo Abenza</div>
+                <div class="small text-muted">Nutrición, salud y rendimiento deportivo</div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="col-6 col-md-4 col-lg-3">
-          <div class="card h-100 shadow-sm">
-            <img src="assets/img/speakers/spk_4.jpg" class="card-img-top speaker-img" alt="Sergio Fernández-Artamendi">
-            <div class="card-body p-2">
-              <div class="small fw-semibold mb-1">Sergio Fernández-Artamendi</div>
-              <div class="small text-muted">Cannabis, salud mental y estigma</div>
+          <!-- Francisco -->
+          <div class="col-6 col-md-4 col-lg-3">
+            <div class="card h-100 shadow-sm speaker-card" role="button" tabindex="0"
+                 data-name="Francisco J. Ortín Montero"
+                 data-subtitle="Bienestar psicológico en el contexto deportivo"
+                 data-img="assets/img/speakers/spk_3.jpg"
+                 data-bio="Descripción del ponente y líneas de investigación.">
+              <img src="assets/img/speakers/spk_3.jpg" class="card-img-top speaker-img" alt="Francisco J. Ortín Montero">
+              <div class="card-body p-2">
+                <div class="small fw-semibold mb-1">Francisco J. Ortín Montero</div>
+                <div class="small text-muted">Bienestar psicológico en el contexto deportivo</div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="col-6 col-md-4 col-lg-3">
-          <div class="card h-100 shadow-sm">
-            <img src="assets/img/speakers/spk_5.jpg" class="card-img-top speaker-img" alt="Víctor José Villanueva">
-            <div class="card-body p-2">
-              <div class="small fw-semibold mb-1">Víctor José Villanueva</div>
-              <div class="small text-muted">Estigma y adicciones comportamentales</div>
+          <!-- Sergio -->
+          <div class="col-6 col-md-4 col-lg-3">
+            <div class="card h-100 shadow-sm speaker-card" role="button" tabindex="0"
+                 data-name="Sergio Fernández-Artamendi"
+                 data-subtitle="Cannabis, salud mental y estigma"
+                 data-img="assets/img/speakers/spk_4.jpg"
+                 data-bio="Síntesis del contenido de su intervención y aportaciones clave.">
+              <img src="assets/img/speakers/spk_4.jpg" class="card-img-top speaker-img" alt="Sergio Fernández-Artamendi">
+              <div class="card-body p-2">
+                <div class="small fw-semibold mb-1">Sergio Fernández-Artamendi</div>
+                <div class="small text-muted">Cannabis, salud mental y estigma</div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="col-6 col-md-4 col-lg-3">
-          <div class="card h-100 shadow-sm">
-            <img src="assets/img/speakers/spk_6.jpg" class="card-img-top speaker-img" alt="Juan F. Navas">
-            <div class="card-body p-2">
-              <div class="small fw-semibold mb-1">Juan F. Navas</div>
-              <div class="small text-muted">Programa de intervención escolar sobre el juego online</div>
+          <!-- Víctor -->
+          <div class="col-6 col-md-4 col-lg-3">
+            <div class="card h-100 shadow-sm speaker-card" role="button" tabindex="0"
+                 data-name="Víctor José Villanueva"
+                 data-subtitle="Estigma y adicciones comportamentales"
+                 data-img="assets/img/speakers/spk_5.jpg"
+                 data-bio="Breve bio y objetivos de la charla.">
+              <img src="assets/img/speakers/spk_5.jpg" class="card-img-top speaker-img" alt="Víctor José Villanueva">
+              <div class="card-body p-2">
+                <div class="small fw-semibold mb-1">Víctor José Villanueva</div>
+                <div class="small text-muted">Estigma y adicciones comportamentales</div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="col-6 col-md-4 col-lg-3">
-          <div class="card h-100 shadow-sm">
-            <img src="assets/img/speakers/spk_7.jpg" class="card-img-top speaker-img" alt="Olatz López-Fernández">
-            <div class="card-body p-2">
-              <div class="small fw-semibold mb-1">Olatz López-Fernández</div>
-              <div class="small text-muted">Uso de smartphones por adolescentes</div>
+          <!-- Juan -->
+          <div class="col-6 col-md-4 col-lg-3">
+            <div class="card h-100 shadow-sm speaker-card" role="button" tabindex="0"
+                 data-name="Juan F. Navas"
+                 data-subtitle="Programa de intervención escolar sobre el juego online"
+                 data-img="assets/img/speakers/spk_6.jpg"
+                 data-bio="Resumen del programa, resultados y recomendaciones.">
+              <img src="assets/img/speakers/spk_6.jpg" class="card-img-top speaker-img" alt="Juan F. Navas">
+              <div class="card-body p-2">
+                <div class="small fw-semibold mb-1">Juan F. Navas</div>
+                <div class="small text-muted">Programa de intervención escolar sobre el juego online</div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="col-6 col-md-4 col-lg-3">
-          <div class="card h-100 shadow-sm">
-            <img src="assets/img/speakers/spk_8.jpg" class="card-img-top speaker-img" alt="Ana López Durán">
-            <div class="card-body p-2">
-              <div class="small fw-semibold mb-1">Ana López Durán</div>
-              <div class="small text-muted">Uso de APPs para dejar de fumar</div>
+          <!-- Olatz -->
+          <div class="col-6 col-md-4 col-lg-3">
+            <div class="card h-100 shadow-sm speaker-card" role="button" tabindex="0"
+                 data-name="Olatz López-Fernández"
+                 data-subtitle="Uso de smartphones por adolescentes"
+                 data-img="assets/img/speakers/spk_7.jpg"
+                 data-bio="Retos y evidencias actuales sobre el uso problemático.">
+              <img src="assets/img/speakers/spk_7.jpg" class="card-img-top speaker-img" alt="Olatz López-Fernández">
+              <div class="card-body p-2">
+                <div class="small fw-semibold mb-1">Olatz López-Fernández</div>
+                <div class="small text-muted">Uso de smartphones por adolescentes</div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="col-6 col-md-4 col-lg-3">
-          <div class="card h-100 shadow-sm">
-            <img src="assets/img/speakers/spk_9.jpg" class="card-img-top speaker-img" alt="Daria Ukhova">
-            <div class="card-body p-2">
-              <div class="small fw-semibold mb-1">Daria Ukhova</div>
-              <div class="small text-muted">Conferencia de clausura</div>
+          <!-- Ana -->
+          <div class="col-6 col-md-4 col-lg-3">
+            <div class="card h-100 shadow-sm speaker-card" role="button" tabindex="0"
+                 data-name="Ana López Durán"
+                 data-subtitle="Uso de APPs para dejar de fumar"
+                 data-img="assets/img/speakers/spk_8.jpg"
+                 data-bio="Evidencia sobre intervenciones móviles para dejar de fumar.">
+              <img src="assets/img/speakers/spk_8.jpg" class="card-img-top speaker-img" alt="Ana López Durán">
+              <div class="card-body p-2">
+                <div class="small fw-semibold mb-1">Ana López Durán</div>
+                <div class="small text-muted">Uso de APPs para dejar de fumar</div>
+              </div>
             </div>
           </div>
-        </div>
+
+          <!-- Daria -->
+          <div class="col-6 col-md-4 col-lg-3">
+            <div class="card h-100 shadow-sm speaker-card" role="button" tabindex="0"
+                 data-name="Daria Ukhova"
+                 data-subtitle="Conferencia de clausura"
+                 data-img="assets/img/speakers/spk_9.jpg"
+                 data-bio="Cierre del congreso con síntesis y perspectivas futuras.">
+              <img src="assets/img/speakers/spk_9.jpg" class="card-img-top speaker-img" alt="Daria Ukhova">
+              <div class="card-body p-2">
+                <div class="small fw-semibold mb-1">Daria Ukhova</div>
+                <div class="small text-muted">Conferencia de clausura</div>
+              </div>
+            </div>
           </div>
+
         </div>
-        <div class="modal-footer"><button class="btn btn-secondary" data-bs-dismiss="modal" data-i18n="common.close">Cerrar</button></div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal" data-i18n="common.close">Cerrar</button>
       </div>
     </div>
   </div>
+</div>
 
   <!-- Legal modals -->
   <div class="modal fade" id="legalModal" tabindex="-1"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" data-i18n="footer.legal">Aviso legal</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body small"><p>Aviso legal

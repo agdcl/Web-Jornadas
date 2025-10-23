@@ -8,7 +8,11 @@
   <link rel="stylesheet" href="assets/css/styles.css">
 
   <style>
-    /* Show carousel captions on mobile and make them readable */
+    /* HERO básico para evitar overlays que tapen el contenido */
+    .hero{ position:relative; min-height:52vh; background:#0d6efd; display:flex; align-items:center; }
+    .hero-overlay{ position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.25), rgba(0,0,0,.4)); pointer-events:none; }
+
+    /* Captions del carrusel legibles en móvil */
     @media (max-width: 576px){
       .carousel-caption{ 
         display:block !important;
@@ -20,85 +24,74 @@
       .carousel-caption p{ font-size: .8rem; margin-bottom: .15rem; }
       .bg-caption{ background: rgba(0,0,0,.60); backdrop-filter: saturate(120%) blur(4px); border-radius: .5rem; }
     }
-	  /* SPEAKERS CAROUSEL: más alto en móvil y sin que el texto tape la imagen */
-#speakersCarousel .speaker-img{
-  width: 100%;
-  height: clamp(380px, 72vh, 780px);
-  object-fit: cover;
-  /* Suele ayudar a mantener el rostro visible */
-  object-position: center 15%;
-}
 
-/* Reserva espacio bajo la foto para el caption en pantallas pequeñas */
-@media (max-width: 576px){
-  #speakersCarousel .carousel-item{ position: relative; }
-  #speakersCarousel .carousel-item::after{
-    content: "";
-    display: block;
-    height: 5.5rem; /* altura reservada para el texto */
-  }
-  #speakersCarousel .carousel-caption{
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: .5rem .75rem;
-  }
-  #speakersCarousel .bg-caption{
-    background: linear-gradient(to top, rgba(0,0,0,.7), rgba(0,0,0,.35), transparent);
-    border-radius: .5rem;
-  }
-}
-
-/* Ajustes para tablets */
-@media (min-width: 577px) and (max-width: 991.98px){
-  #speakersCarousel .speaker-img{ height: clamp(420px, 60vh, 720px); }
-  #speakersCarousel .carousel-item::after{ height: 4rem; }
-}
-
-/* Escritorio */
-@media (min-width: 992px){
-  #speakersCarousel .speaker-img{ height: 520px; }
-  #speakersCarousel .carousel-item::after{ height: 0; } /* ya no hace falta reservar espacio */
-}
+    /* SPEAKERS CAROUSEL: más alto en móvil y sin que el texto tape la imagen */
+    #speakersCarousel .speaker-img{
+      width: 100%;
+      height: clamp(380px, 72vh, 780px);
+      object-fit: cover;
+      object-position: center 15%;
+    }
+    @media (max-width: 576px){
+      #speakersCarousel .carousel-item{ position: relative; }
+      #speakersCarousel .carousel-item::after{
+        content: "";
+        display: block;
+        height: 5.5rem;
+      }
+      #speakersCarousel .carousel-caption{
+        bottom: 0; left: 0; right: 0; padding: .5rem .75rem;
+      }
+      #speakersCarousel .bg-caption{
+        background: linear-gradient(to top, rgba(0,0,0,.7), rgba(0,0,0,.35), transparent);
+        border-radius: .5rem;
+      }
+    }
+    @media (min-width: 577px) and (max-width: 991.98px){
+      #speakersCarousel .speaker-img{ height: clamp(420px, 60vh, 720px); }
+      #speakersCarousel .carousel-item::after{ height: 4rem; }
+    }
+    @media (min-width: 992px){
+      #speakersCarousel .speaker-img{ height: 520px; }
+      #speakersCarousel .carousel-item::after{ height: 0; }
+    }
 	  
-/* Tarjetas de ponentes con borde iluminado al hover/focus */
-.speaker-card{
-  border-radius: .75rem;
-  overflow: hidden;
-  transition: box-shadow .2s ease, transform .2s ease, border-color .2s ease;
-  cursor: pointer;
-  border: 2px solid transparent;
-}
-.speaker-card:hover,
-.speaker-card:focus{
-  border-color: var(--bs-primary);
-  box-shadow: 0 0 0 .25rem rgba(13,110,253,.25);
-  transform: translateY(-2px);
-  outline: none;
-}
+    /* Tarjetas de ponentes con borde iluminado al hover/focus */
+    .speaker-card{
+      border-radius: .75rem;
+      overflow: hidden;
+      transition: box-shadow .2s ease, transform .2s ease, border-color .2s ease;
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+    .speaker-card:hover,
+    .speaker-card:focus{
+      border-color: var(--bs-primary);
+      box-shadow: 0 0 0 .25rem rgba(13,110,253,.25);
+      transform: translateY(-2px);
+      outline: none;
+    }
 
-/* Asegura encuadre bonito de las fotos */
-.speaker-img{
-  object-fit: cover;
-  aspect-ratio: 1 / 1;     /* cuadrada */
-}
+    /* Asegura encuadre bonito de las fotos */
+    .speaker-img{
+      object-fit: cover;
+      aspect-ratio: 1 / 1;     /* cuadrada */
+    }
 
-/* Accesibilidad en teclado */
-.speaker-card:focus-visible{
-  box-shadow: 0 0 0 .25rem rgba(13,110,253,.4);
-}
+    /* Accesibilidad en teclado */
+    .speaker-card:focus-visible{
+      box-shadow: 0 0 0 .25rem rgba(13,110,253,.4);
+    }
 
-/* Bio del modal de detalle: respeta saltos de línea y siempre visible */
-.speaker-detail-bio{
-  white-space: pre-line;
-}
+    /* Bio del modal de detalle: respeta saltos de línea y siempre visible */
+    .speaker-detail-bio{ white-space: pre-line; }
   </style>
 
 </head>
 <body>
   <nav class="navbar navbar-expand-lg bg-white sticky-top shadow-sm">
     <div class="container">
-      <a class="navbar-brand fw-bold" href="#" data-i18n="brand">ICoHA · 2025</a>
+      <a class="navbar-brand fw-bold text-primary" href="#" data-i18n="brand">ICoHA · 2025</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -130,7 +123,7 @@
     </div>
   </nav>
 
-  <section class="hero d-flex align-items-center text-white">
+  <section class="hero text-white">
     <div class="container text-center position-relative" style="z-index:2;">
       <h1 class="display-5 fw-bold mb-2" data-i18n="hero.title">II International Congress on Health and Addictions</h1>
       <p class="lead mb-1" data-i18n="hero.tagline">Evidence based advances in research and practice</p>
@@ -184,18 +177,17 @@
                 <div class="carousel-caption d-block bg-caption">
                   <h5 class="mb-1"><span class="badge text-bg-warning me-2" data-i18n="speakers.opening_badge">Ponencia inaugural</span>Gregor Burkhart,MD,MPH</h5>
                   <p class="small mb-0">Principal scientist — Prevention</p>
-					<p class="small mb-0">Health and social responses sector</p>
-					<p class="small mb-0">Substance use, harms and responses unit</p>
-					<p class="small mb-0">European Union Drugs Agency (EUDA)</p>
-                  </div>
+                  <p class="small mb-0">Health and social responses sector</p>
+                  <p class="small mb-0">Substance use, harms and responses unit</p>
+                  <p class="small mb-0">European Union Drugs Agency (EUDA)</p>
+                </div>
               </div>
               <div class="carousel-item">
                 <img src="assets/img/speakers/spk_2.jpg" class="d-block w-100 speaker-img" alt="Luís Hidalgo Abenza">
                 <div class="carousel-caption d-block bg-caption">
                   <h5 class="mb-1">Luís Hidalgo Abenza</h5>
                   <p class="small mb-0">Decano del Colegio Oficial de Dietistas-Nutricionistas de la Región de Murcia</p>
-					<p class="small mb-0">Responsable del Área de Nutrición del Centro de Alto Rendimiento Infanta Cristina. Murcia</p>
-		  
+                  <p class="small mb-0">Responsable del Área de Nutrición del Centro de Alto Rendimiento Infanta Cristina. Murcia</p>
                 </div>
               </div>
               <div class="carousel-item">
@@ -203,8 +195,8 @@
                 <div class="carousel-caption d-block bg-caption">
                   <h5 class="mb-1">Dr. Francisco J. Ortín Montero</h5>
                   <p class="small mb-0">Doctor en Psicología</p>
-					 <p class="small mb-0">Responsable del Área de Psicología del Centro de Alto Rendimiento Infanta Cristina. Murcia.</p>
-					<p class="small mb-0">Investigador Principal del Grupo de Investigación de Psicología del Deporte. Universidad de Murcia</p>
+                  <p class="small mb-0">Responsable del Área de Psicología del Centro de Alto Rendimiento Infanta Cristina. Murcia.</p>
+                  <p class="small mb-0">Investigador Principal del Grupo de Investigación de Psicología del Deporte. Universidad de Murcia</p>
                 </div>
               </div>
               <div class="carousel-item">
@@ -212,7 +204,7 @@
                 <div class="carousel-caption d-block bg-caption">
                   <h5 class="mb-1">Sergio Fernández-Artamendi,PhD</h5>
                   <p class="small mb-0">Profesor Titular Universidad de Sevilla</p>
-					<p class="small mb-0">Addictions Research Group at the University of Seville (ARGUS)</p>
+                  <p class="small mb-0">Addictions Research Group at the University of Seville (ARGUS)</p>
                 </div>
               </div>
               <div class="carousel-item">
@@ -220,7 +212,7 @@
                 <div class="carousel-caption d-block bg-caption">
                   <h5 class="mb-1">Víctor José Villanueva</h5>
                   <p class="small mb-0">Director del Máster Universitario en Prevención en Drogodependencias y otras Conductas Adictivas</p>
-					<p class="small mb-0">Universidad Internacional de Valencia - VIU </p>
+                  <p class="small mb-0">Universidad Internacional de Valencia - VIU </p>
                 </div>
               </div>
               <div class="carousel-item">
@@ -228,7 +220,7 @@
                 <div class="carousel-caption d-block bg-caption">
                   <h5 class="mb-1">Juan F. Navas</h5>
                   <p class="small mb-0">Profesor del Dpto. de Psicología Clínica</p>
-					<p class="small mb-0">Director de investigación de la Clínica Universitaria de Psicología de la Universidad Complutense de Madrid</p>
+                  <p class="small mb-0">Director de investigación de la Clínica Universitaria de Psicología de la Universidad Complutense de Madrid</p>
                 </div>
               </div>
               <div class="carousel-item">
@@ -236,7 +228,7 @@
                 <div class="carousel-caption d-block bg-caption">
                   <h5 class="mb-1">Olatz López-Fernández</h5>
                   <p class="small mb-0">Profesora Titular de la Universidad Nacional de Educación a Distancia (UNED)</p>
-					 <p class="small mb-0">Grupo de investigación modelos estadísticos y computacionales en Psicología</p>
+                  <p class="small mb-0">Grupo de investigación modelos estadísticos y computacionales en Psicología</p>
                 </div>
               </div>
               <div class="carousel-item">
@@ -244,7 +236,7 @@
                 <div class="carousel-caption d-block bg-caption">
                   <h5 class="mb-1">Ana López Durán</h5>
                   <p class="small mb-0">Profesora titular Universidad de Santiago de Compostela</p>
-					<p class="small mb-0">Grupo de investigación Evaluación y tratamiento de las adicciones, de los trastornos del estado de ánimo, ansiedad y psicología de la salud</p>
+                  <p class="small mb-0">Grupo de investigación Evaluación y tratamiento de las adicciones, de los trastornos del estado de ánimo, ansiedad y psicología de la salud</p>
                 </div>
               </div>
               <div class="carousel-item">
@@ -252,7 +244,7 @@
                 <div class="carousel-caption d-block bg-caption">
                   <h5 class="mb-1"><span class="badge text-bg-info me-2" data-i18n="speakers.closing_badge">Conferencia de clausura</span>Daria Ukhova</h5>
                   <p class="small mb-0">Lancet Public Health Commission on Gambling</p>
-					<p class="small mb-0">School of Health and Wellbeing’s Social Scientists in Health (U. Glasgow)</p>
+                  <p class="small mb-0">School of Health and Wellbeing’s Social Scientists in Health (U. Glasgow)</p>
                 </div>
               </div>
             </div>
@@ -274,20 +266,19 @@
     </div>
 
     <div class="row align-items-center g-4">
-      <!-- Imagen a la izquierda -->
       <div class="col-12 col-md-5">
-		<img src="assets/img/Marta Saiz.jpg" 
-          class="img-fluid w-100 rounded-4 shadow-sm" 
-          alt="Marta Saiz"
-          loading="lazy">
+        <img src="assets/img/Marta Saiz.jpg" class="img-fluid w-100 rounded-4 shadow-sm" alt="Marta Saiz" loading="lazy">
       </div>
-      <!-- Texto a la derecha -->
       <div class="col-12 col-md-7">
-		<p class="mb-0" data-i18n="about.copy">
-          Este congreso dedica un espacio a la divulgación científica accesible para todos, con el objetivo de convertir la mejor evidencia en conocimiento claro, útil y responsable. Traducimos resultados de investigación en mensajes comprensibles, sin perder rigor, para que familias, estudiantes, profesionales y medios puedan interpretar datos, distinguir evidencia de opinión y tomar decisiones informadas.</p> 
-			<br><p class="mb-0" data-i18n="about.copy">A través de ejemplos prácticos y desmontando mitos frecuentes en salud y adicciones, acercamos la ciencia a la ciudadanía para que la conversación pública se base en hechos y no en titulares.</p>
-			<br><p class="mb-0" data-i18n="about.copy">Para ello, en esta edición contaremos con la participación de Marta Saiz, periodista independiente especializada en derechos humanos y responsable de comunicación del portal LasDrogas.info.</p>
-			
+        <p class="mb-3" data-i18n="about.copy">
+          Este congreso dedica un espacio a la divulgación científica accesible para todos, con el objetivo de convertir la mejor evidencia en conocimiento claro, útil y responsable. Traducimos resultados de investigación en mensajes comprensibles, sin perder rigor, para que familias, estudiantes, profesionales y medios puedan interpretar datos, distinguir evidencia de opinión y tomar decisiones informadas.
+        </p>
+        <p class="mb-3" data-i18n="about.copy">
+          A través de ejemplos prácticos y desmontando mitos frecuentes en salud y adicciones, acercamos la ciencia a la ciudadanía para que la conversación pública se base en hechos y no en titulares.
+        </p>
+        <p class="mb-0" data-i18n="about.copy">
+          Para ello, en esta edición contaremos con la participación de Marta Saiz, periodista independiente especializada en derechos humanos y responsable de comunicación del portal LasDrogas.info.
+        </p>
       </div>
     </div>
   </div>
@@ -300,24 +291,19 @@
     </div>
 
     <div class="row align-items-center g-4">
-      <!-- Imagen a la derecha en md+ -->
       <div class="col-12 col-md-5 order-md-2">
-        <img src="assets/img/Arkano.jpg" 
-             class="img-fluid w-100 rounded-4 shadow-sm" 
-             alt="Arkano"
-             loading="lazy">
+        <img src="assets/img/Arkano.jpg" class="img-fluid w-100 rounded-4 shadow-sm" alt="Arkano" loading="lazy">
       </div>
-
-      <!-- Texto a la izquierda en md+ -->
       <div class="col-12 col-md-7 order-md-1">
-        <p class="mb-0" data-i18n="about.copy">
+        <p class="mb-3" data-i18n="about.copy">
           Esta sección reúne experiencias en primera persona y proyectos de salud que ponen rostro a los datos y muestran cómo la evidencia se traduce en cambios reales. Con un enfoque respetuoso y no estigmatizante, se comparten aprendizajes, retos y buenas prácticas en prevención, tratamiento y reducción de riesgos. El objetivo es inspirar y conectar a profesionales, estudiantes, familias y comunidad, ofreciendo relatos y casos que aportan herramientas útiles y criterios basados en la evidencia para mejorar la toma de decisiones y el bienestar colectivo.
-        <br>
+        </p>
+        <p class="mb-3" data-i18n="about.copy">
+          En esta edición contaremos con la participación de Arkano, rapero y freestyler alicantino reconocido como una de las figuras clave del hip hop en español. Fue campeón nacional de Red Bull Batalla con solo 15 años en 2009 y volvió a ganar en 2015, año en el que se coronó campeón internacional en Chile. También estableció un Récord Guinness al improvisar durante 24 horas 34 minutos y 27 segundos y ha participado en proyectos televisivos y de divulgación cultural, además de colaborar con artistas del panorama pop y rock en España.
+        </p>
         <p class="mb-0" data-i18n="about.copy">
-        En esta edición contaremos con la participación de Arkano, rapero y freestyler alicantino reconocido como una de las figuras clave del hip hop en español. Fue campeón nacional de Red Bull Batalla con solo 15 años en 2009 y volvió a ganar en 2015, año en el que se coronó campeón internacional en Chile. También estableció un Récord Guinness al improvisar durante 24 horas 34 minutos y 27 segundos y ha participado en proyectos televisivos y de divulgación cultural, además de colaborar con artistas del panorama pop y rock en España.
-        <br>
-			 <p class="mb-0" data-i18n="about.copy">Arkano nos hablará de su experiencia con las adicciones y su proyecto personal de abstinencia y cambio de vida.
-		</p>
+          Arkano nos hablará de su experiencia con las adicciones y su proyecto personal de abstinencia y cambio de vida.
+        </p>
       </div>
     </div>
   </div>
@@ -363,7 +349,7 @@
         <div class="col-lg-7">
           <h2 class="fw-bold mb-2" data-i18n="abstracts.title">Envío de trabajos</h2>
           <p class="mb-3" data-i18n="abstracts.copy">Fecha límite 20 de noviembre. Consulta las normas para pósteres.</p>
-			<p><br>Los pósteres aceptados se podrán presentar extendidos para su publicación en un número especial de la revista científica <a href="https://www.haaj.org/?journal=haaj&page=index">Health and Addictions/Salud y Drogas (HAAJ) ISSN: 1578-5319/ISSNe 1988-205X</a> </p>
+          <p class="mb-3">Los pósteres aceptados se podrán presentar extendidos para su publicación en un número especial de la revista científica <a href="https://www.haaj.org/?journal=haaj&page=index">Health and Addictions/Salud y Drogas (HAAJ) ISSN: 1578-5319/ISSNe 1988-205X</a></p>
           <div class="d-flex gap-2">
             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#posterRulesModal" data-i18n="abstracts.rules_btn">Normas para pósteres</button>
             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#submitInfoModal" data-i18n="abstracts.submit_btn">Presentar trabajo</button>
@@ -439,13 +425,12 @@
     </div>
   </footer>
 
-  <!-- Modals -->
+  <!-- Modales auxiliares (Pósteres, envío, legales) -->
   <div class="modal fade" id="posterRulesModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-xl modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header"><h5 class="modal-title" data-i18n="abstracts.rules_title">Normas para el envío de resúmenes y presentación de pósteres</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
         <div class="modal-body small" id="posterRulesBody">
-          <!-- We keep ES content as default; JS will replace with EN when selected -->
           <h6 class="fw-bold">Procedimiento de envío de resúmenes de póster</h6>
           <p><strong>Modalidad:</strong> Todas las comunicaciones deberán presentarse en formato póster.</p>
           <p><strong>Título:</strong> En formato oración (minúsculas), evitando mayúsculas completas.</p>
@@ -473,4 +458,303 @@
   <div class="modal fade" id="submitInfoModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-md modal-dialog-centered">
       <div class="modal-content">
-        <di
+        <div class="modal-header"><h5 class="modal-title" data-i18n="submit.title">Información para el envío de trabajos</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+        <div class="modal-body"><p data-i18n="submit.copy">Envía tu resumen siguiendo las indicaciones de las normas para autores a <a href="mailto:info@icoha.es">info@icoha.es</a>.</p></div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal" data-i18n="common.close">Cerrar</button>
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#posterRulesModal" data-i18n="submit.view_rules">Ver normas</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NUEVOS: Modales de Comités -->
+  <div class="modal fade" id="scientificCommitteeModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" data-i18n="committee.scientific_title">Comité científico</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <p>Texto de ejemplo.</p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal" data-i18n="common.close">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="organizingCommitteeModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" data-i18n="committee.organizing_title">Comité organizador</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <p>Texto de ejemplo.</p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal" data-i18n="common.close">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- FIN nuevos -->
+
+  <!-- Modal grid de ponentes -->
+  <div class="modal fade" id="allSpeakersModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" data-i18n="speakers.modal_title">Ponentes</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="modal-body">
+          <div class="row g-3">
+            <!-- Gregor -->
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="card h-100 shadow-sm speaker-card" role="button" tabindex="0"
+                   data-name="Gregor Burkhart"
+                   data-subtitle="Ponencia inaugural · Psicología ambiental"
+                   data-img="assets/img/speakers/spk_1.jpg"
+                   data-bio="Descripción del ponente. Amplía aquí con 3–4 líneas sobre su charla y trayectoria.">
+                <img src="assets/img/speakers/spk_1.jpg" class="card-img-top speaker-img" alt="Gregor Burkhart">
+                <div class="card-body p-2">
+                  <div class="small fw-semibold mb-1">Gregor Burkhart</div>
+                  <div class="small text-muted">Ponencia inaugural · Psicología ambiental</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Luís -->
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="card h-100 shadow-sm speaker-card" role="button" tabindex="0"
+                   data-name="Luís Hidalgo Abenza"
+                   data-subtitle="Nutrición, salud y rendimiento deportivo"
+                   data-img="assets/img/speakers/spk_2.jpg"
+                   data-bio="Descripción del ponente. Enfatiza aplicaciones prácticas y evidencia científica.">
+                <img src="assets/img/speakers/spk_2.jpg" class="card-img-top speaker-img" alt="Luís Hidalgo Abenza">
+                <div class="card-body p-2">
+                  <div class="small fw-semibold mb-1">Luís Hidalgo Abenza</div>
+                  <div class="small text-muted">Nutrición, salud y rendimiento deportivo</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Francisco -->
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="card h-100 shadow-sm speaker-card" role="button" tabindex="0"
+                   data-name="Francisco J. Ortín Montero"
+                   data-subtitle="Bienestar psicológico en el contexto deportivo"
+                   data-img="assets/img/speakers/spk_3.jpg"
+                   data-bio="Descripción del ponente y líneas de investigación.">
+                <img src="assets/img/speakers/spk_3.jpg" class="card-img-top speaker-img" alt="Francisco J. Ortín Montero">
+                <div class="card-body p-2">
+                  <div class="small fw-semibold mb-1">Francisco J. Ortín Montero</div>
+                  <div class="small text-muted">Bienestar psicológico en el contexto deportivo</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sergio -->
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="card h-100 shadow-sm speaker-card" role="button" tabindex="0"
+                   data-name="Sergio Fernández-Artamendi"
+                   data-subtitle="Cannabis, salud mental y estigma"
+                   data-img="assets/img/speakers/spk_4.jpg"
+                   data-bio="Síntesis del contenido de su intervención y aportaciones clave.">
+                <img src="assets/img/speakers/spk_4.jpg" class="card-img-top speaker-img" alt="Sergio Fernández-Artamendi">
+                <div class="card-body p-2">
+                  <div class="small fw-semibold mb-1">Sergio Fernández-Artamendi</div>
+                  <div class="small text-muted">Cannabis, salud mental y estigma</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Víctor -->
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="card h-100 shadow-sm speaker-card" role="button" tabindex="0"
+                   data-name="Víctor José Villanueva"
+                   data-subtitle="Estigma y adicciones comportamentales"
+                   data-img="assets/img/speakers/spk_5.jpg"
+                   data-bio="Breve bio y objetivos de la charla.">
+                <img src="assets/img/speakers/spk_5.jpg" class="card-img-top speaker-img" alt="Víctor José Villanueva">
+                <div class="card-body p-2">
+                  <div class="small fw-semibold mb-1">Víctor José Villanueva</div>
+                  <div class="small text-muted">Estigma y adicciones comportamentales</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Juan -->
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="card h-100 shadow-sm speaker-card" role="button" tabindex="0"
+                   data-name="Juan F. Navas"
+                   data-subtitle="Programa de intervención escolar sobre el juego online"
+                   data-img="assets/img/speakers/spk_6.jpg"
+                   data-bio="Resumen del programa, resultados y recomendaciones.">
+                <img src="assets/img/speakers/spk_6.jpg" class="card-img-top speaker-img" alt="Juan F. Navas">
+                <div class="card-body p-2">
+                  <div class="small fw-semibold mb-1">Juan F. Navas</div>
+                  <div class="small text-muted">Programa de intervención escolar sobre el juego online</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Olatz -->
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="card h-100 shadow-sm speaker-card" role="button" tabindex="0"
+                   data-name="Olatz López-Fernández"
+                   data-subtitle="Uso de smartphones por adolescentes"
+                   data-img="assets/img/speakers/spk_7.jpg"
+                   data-bio="Retos y evidencias actuales sobre el uso problemático.">
+                <img src="assets/img/speakers/spk_7.jpg" class="card-img-top speaker-img" alt="Olatz López-Fernández">
+                <div class="card-body p-2">
+                  <div class="small fw-semibold mb-1">Olatz López-Fernández</div>
+                  <div class="small text-muted">Uso de smartphones por adolescentes</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Ana -->
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="card h-100 shadow-sm speaker-card" role="button" tabindex="0"
+                   data-name="Ana López Durán"
+                   data-subtitle="Uso de APPs para dejar de fumar"
+                   data-img="assets/img/speakers/spk_8.jpg"
+                   data-bio="Evidencia sobre intervenciones móviles para dejar de fumar.">
+                <img src="assets/img/speakers/spk_8.jpg" class="card-img-top speaker-img" alt="Ana López Durán">
+                <div class="card-body p-2">
+                  <div class="small fw-semibold mb-1">Ana López Durán</div>
+                  <div class="small text-muted">Uso de APPs para dejar de fumar</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Daria -->
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="card h-100 shadow-sm speaker-card" role="button" tabindex="0"
+                   data-name="Daria Ukhova"
+                   data-subtitle="Conferencia de clausura"
+                   data-img="assets/img/speakers/spk_9.jpg"
+                   data-bio="Cierre del congreso con síntesis y perspectivas futuras.">
+                <img src="assets/img/speakers/spk_9.jpg" class="card-img-top speaker-img" alt="Daria Ukhova">
+                <div class="card-body p-2">
+                  <div class="small fw-semibold mb-1">Daria Ukhova</div>
+                  <div class="small text-muted">Conferencia de clausura</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal" data-i18n="common.close">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de detalle de ponente -->
+  <div class="modal fade" id="speakerDetailModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div>
+            <h5 class="modal-title speaker-detail-title">Ponente</h5>
+            <div class="small text-muted speaker-detail-subtitle"></div>
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <div class="d-flex gap-3 align-items-start flex-wrap">
+            <img src="" alt="" class="rounded speaker-detail-img" style="width:160px;height:160px;object-fit:cover;">
+            <div class="speaker-detail-bio"></div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Aviso legal / Privacidad / Cookies (sin cambios de estructura) -->
+  <div class="modal fade" id="legalModal" tabindex="-1"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" data-i18n="footer.legal">Aviso legal</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body small"><p>... (contenido intacto) ...</p></div></div></div></div>
+  <div class="modal fade" id="privacyModal" tabindex="-1"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" data-i18n="footer.privacy">Política de privacidad</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body small"><p>... (contenido intacto) ...</p></div></div></div></div>
+  <div class="modal fade" id="cookiesModal" tabindex="-1"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" data-i18n="footer.cookies">Política de cookies</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body small"><p>... (contenido intacto) ...</p></div></div></div></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Click en speaker abre modal de detalle con bio -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const allModalEl = document.getElementById('allSpeakersModal');
+    const detailModalEl = document.getElementById('speakerDetailModal');
+
+    if (!allModalEl || !detailModalEl) return;
+
+    let pendingDetail = null;
+
+    allModalEl.addEventListener('click', function (e) {
+      const card = e.target.closest('.speaker-card');
+      if (!card) return;
+
+      const name = card.getAttribute('data-name') || card.dataset.name || '';
+      const subtitle = card.getAttribute('data-subtitle') || card.dataset.subtitle || '';
+      const img = card.getAttribute('data-img') || card.dataset.img || (card.querySelector('img')?.src ?? '');
+      let bio = card.getAttribute('data-bio') || card.dataset.bio || '';
+
+      if (!bio) {
+        const hidden = card.querySelector('.speaker-bio');
+        if (hidden) bio = hidden.innerHTML.trim();
+      }
+
+      pendingDetail = { name, subtitle, img, bio };
+
+      const allModal = bootstrap.Modal.getOrCreateInstance(allModalEl);
+      allModal.hide();
+    });
+
+    allModalEl.addEventListener('keydown', function (e) {
+      if ((e.key === 'Enter' || e.key === ' ') && e.target.classList.contains('speaker-card')) {
+        e.preventDefault();
+        e.target.click();
+      }
+    });
+
+    allModalEl.addEventListener('hidden.bs.modal', function () {
+      if (!pendingDetail) return;
+
+      detailModalEl.querySelector('.speaker-detail-title').textContent = pendingDetail.name || 'Ponente';
+      detailModalEl.querySelector('.speaker-detail-subtitle').textContent = pendingDetail.subtitle || '';
+
+      const imgEl = detailModalEl.querySelector('.speaker-detail-img');
+      imgEl.src = pendingDetail.img || '';
+      imgEl.alt = pendingDetail.name || 'Ponente';
+
+      const bioEl = detailModalEl.querySelector('.speaker-detail-bio');
+      const looksLikeHtml = /<\w+[^>]*>/.test(pendingDetail.bio || '');
+      if (looksLikeHtml) {
+        bioEl.innerHTML = pendingDetail.bio;
+      } else {
+        bioEl.innerHTML = (pendingDetail.bio && pendingDetail.bio.trim().length)
+          ? pendingDetail.bio.replace(/\n/g, '<br>')
+          : '<span class="text-muted">Descripción no disponible.</span>';
+      }
+
+      const detailModal = bootstrap.Modal.getOrCreateInstance(detailModalEl);
+      detailModal.show();
+      pendingDetail = null;
+    });
+  });
+  </script>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

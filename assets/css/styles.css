@@ -30,3 +30,30 @@ body{font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 
 .animate-pop{transform: translateY(0); transition: transform .2s ease, box-shadow .2s ease;}
 .animate-pop:hover{transform: translateY(-3px); box-shadow: 0 .75rem 1.25rem rgba(51,199,159,.3);}
 .lang-btn{min-width:64px}
+/* Tarjetas de ponentes con borde iluminado al hover/focus */
+.speaker-card{
+  border-radius: .75rem;
+  overflow: hidden;
+  transition: box-shadow .2s ease, transform .2s ease, border-color .2s ease;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+.speaker-card:hover,
+.speaker-card:focus{
+  border-color: var(--bs-primary);
+  box-shadow: 0 0 0 .25rem rgba(13,110,253,.25);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+/* Asegura encuadre bonito de las fotos */
+.speaker-img{
+  object-fit: cover;
+  aspect-ratio: 1 / 1;     /* cuadrada */
+}
+
+/* Accesibilidad en teclado */
+.speaker-card:focus-visible{
+  box-shadow: 0 0 0 .25rem rgba(13,110,253,.4);
+}
+

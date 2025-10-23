@@ -48,7 +48,7 @@ const I18N = {
     "submit.view_rules":"View guidelines",
     "common.prev":"Previous","common.next":"Next","common.close":"Close",
     "poster":"Accepted posters may be submitted in extended form for publication in a special issue of the scientific journal <a href="https://www.haaj.org/?journal=haaj&page=index">Health and Addictions/Salud y Drogas (HAAJ) ISSN: 1578-5319/ISSNe 1988-205X</a>"
-    "nav.scicommittee":"Scientific Committee", "nav.orgcommittee":"Organising committee",
+    "nav.scicommittee":"Scientific Committee", "nav.orgcommittee":"Organising committee"
   }
 };
 let currentLang = 'es';

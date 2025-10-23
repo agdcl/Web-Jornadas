@@ -471,7 +471,7 @@
     </div>
   </div>
 
- <div class="modal fade" id="allSpeakersModal" tabindex="-1" aria-hidden="true">
+<div class="modal fade" id="allSpeakersModal" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog modal-xl modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
@@ -618,82 +618,6 @@
 
         </div>
       </div>
-<div class="modal fade" id="speakerDetailModal" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-lg modal-dialog-scrollable">
-    <div class="modal-content">
-      <div class="modal-header">
-        <div>
-          <h5 class="modal-title speaker-detail-title">Ponente</h5>
-          <div class="small text-muted speaker-detail-subtitle"></div>
-        </div>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-      </div>
-      <div class="modal-body">
-        <div class="d-flex gap-3 align-items-start flex-wrap">
-          <img src="" alt="" class="rounded speaker-detail-img"
-               style="width:160px;height:160px;object-fit:cover;">
-          <div class="speaker-detail-bio">
-            <!-- Aquí se inyecta la bio -->
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-      </div>
-    </div>
-  </div>
-</div>
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  const allModalEl = document.getElementById('allSpeakersModal');
-  const detailModalEl = document.getElementById('speakerDetailModal');
-
-  let pendingDetail = null;
-
-  // Delegación de eventos sobre el grid interno del modal de lista
-  allModalEl.addEventListener('click', function (e) {
-    const card = e.target.closest('.speaker-card');
-    if (!card) return;
-
-    pendingDetail = {
-      name: card.dataset.name || '',
-      subtitle: card.dataset.subtitle || '',
-      img: card.dataset.img || '',
-      bio: card.dataset.bio || ''
-    };
-
-    const allModal = bootstrap.Modal.getOrCreateInstance(allModalEl);
-    allModal.hide();
-  });
-
-  // Accesibilidad con teclado
-  allModalEl.addEventListener('keydown', function (e) {
-    if ((e.key === 'Enter' || e.key === ' ') && e.target.classList.contains('speaker-card')) {
-      e.preventDefault();
-      e.target.click();
-    }
-  });
-
-  // Cuando se cierra el modal de lista, abrimos el de detalle si hay datos pendientes
-  allModalEl.addEventListener('hidden.bs.modal', function () {
-    if (!pendingDetail) return;
-
-    detailModalEl.querySelector('.speaker-detail-title').textContent = pendingDetail.name;
-    detailModalEl.querySelector('.speaker-detail-subtitle').textContent = pendingDetail.subtitle;
-    const imgEl = detailModalEl.querySelector('.speaker-detail-img');
-    imgEl.src = pendingDetail.img;
-    imgEl.alt = pendingDetail.name;
-
-    const bioEl = detailModalEl.querySelector('.speaker-detail-bio');
-    bioEl.textContent = pendingDetail.bio;
-
-    const detailModal = bootstrap.Modal.getOrCreateInstance(detailModalEl);
-    detailModal.show();
-
-    pendingDetail = null;
-  });
-});
-</script>
 
       <div class="modal-footer">
         <button class="btn btn-secondary" data-bs-dismiss="modal" data-i18n="common.close">Cerrar</button>
@@ -701,6 +625,7 @@ document.addEventListener('DOMContentLoaded', function () {
     </div>
   </div>
 </div>
+
 
   <!-- Legal modals -->
   <div class="modal fade" id="legalModal" tabindex="-1"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" data-i18n="footer.legal">Aviso legal</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body small"><p>Aviso legal

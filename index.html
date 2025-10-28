@@ -113,7 +113,52 @@
 @media (max-width: 991.98px){
   #program .modal-dialog{ max-width: 92vw; }
 }
+/* Tira de logos: una sola línea, sin scroll y sin desbordar */
+.org-strip{
+  display:flex;
+  flex-wrap:nowrap;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  overflow:hidden;
+}
 
+/* Cada logo ocupa exactamente 1/5 del ancho para que todos entren siempre */
+.org-item{
+  flex:1 1 0;
+  max-width:20%;
+}
+
+/* Altura responsive: más baja en pantallas pequeñas, más alta en grandes */
+.logo-box{
+  height:48px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+@media (min-width:576px){
+  .logo-box{ height:56px; }
+}
+@media (min-width:768px){
+  .logo-box{ height:64px; }
+}
+@media (min-width:992px){
+  .logo-box{ height:80px; }
+}
+@media (min-width:1200px){
+  .logo-box{ height:96px; }
+}
+
+/* Las imágenes se ajustan dentro de su caja manteniendo proporción */
+.org-img{
+  max-width:100%;
+  max-height:100%;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:block;
+}
   </style>
 
 </head>
@@ -420,17 +465,39 @@
   </section>
 
   <section class="py-5 bg-light reveal" id="organizers">
-    <div class="container">
-      <h2 class="fw-bold mb-4" data-i18n="org.title">Organiza</h2>
-      <div class="row g-5 align-items-center">
-        <div class="col-6 col-md-3 text-center"><img src="assets/img/logo_umh.jpg" class="img-fluid org-logo" alt="UMH logo"></div>
-        <div class="col-6 col-md-3 text-center"><img src="assets/img/logo_inid_horizontal.jpg" class="img-fluid org-logo" alt="INID logo"></div>
-        <div class="col-6 col-md-3 text-center"><img src="assets/img/logo_ucab2025.jpg" class="img-fluid org-logo" alt="UCAB logo"></div>
-		  <div class="col-6 col-md-3 text-center"><img src="assets/img/logo ibrea.png" class="img-fluid org-logo" alt="Ibrea logo"></div>
-        <div class="col-6 col-md-3 text-center"><img src="assets/img/logo_prevengo.png" class="img-fluid org-logo" alt="Prevengo Research logo"></div>
+  <div class="container">
+    <h2 class="fw-bold mb-4" data-i18n="org.title">Organiza</h2>
+
+    <div class="org-strip">
+      <div class="org-item">
+        <div class="logo-box">
+          <img src="assets/img/logo_umh.jpg" alt="UMH logo" class="org-img">
+        </div>
+      </div>
+      <div class="org-item">
+        <div class="logo-box">
+          <img src="assets/img/logo_inid_horizontal.jpg" alt="INID logo" class="org-img">
+        </div>
+      </div>
+      <div class="org-item">
+        <div class="logo-box">
+          <img src="assets/img/logo_ucab2025.jpg" alt="UCAB logo" class="org-img">
+        </div>
+      </div>
+      <div class="org-item">
+        <div class="logo-box">
+          <!-- Si tu archivo tiene espacio en el nombre, usa %20 -->
+          <img src="assets/img/logo%20ibrea.png" alt="Ibrea logo" class="org-img">
+        </div>
+      </div>
+      <div class="org-item">
+        <div class="logo-box">
+          <img src="assets/img/logo_prevengo.png" alt="Prevengo Research logo" class="org-img">
+        </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
   <section class="py-5 reveal" id="register">
     <div class="container">

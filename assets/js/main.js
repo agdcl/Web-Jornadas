@@ -18,7 +18,7 @@ const I18N = {
     "nav.about":"About","nav.speakers":"Speakers","nav.pricing":"Registration","nav.abstracts":"Submissions","nav.venue":"Venue","nav.register":"Register",
     "cta.register":"Register",
     "hero.title":"II International Conference on Health and Addictions",
-    "hero.tagline":"Evidence based advances in Health and Addictions",
+    "hero.tagline":"Updates in evidence and science communication",
     "hero.meta":"December 11 (16:00–20:00) and December 12 (9:00–14:00) · Miguel Hernández University · Elche",
     "hero.view_prices":"View prices","hero.register_now":"Register now",
     "about.heading":"A conference for professionals and students",

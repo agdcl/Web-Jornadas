@@ -22,7 +22,7 @@ const I18N = {
     "hero.meta":"December 11 (16:00–20:00) and December 12 (9:00–14:00) · Miguel Hernández University · Elche",
     "hero.view_prices":"View prices","hero.register_now":"Register now",
     "about.heading":"A conference for professionals and students",
-    "about.copy":"Welcome to ICoHA 2025. Over two days we bring together international researchers, professionals and students to share recent evidence and discuss emerging trends in the field of health and addictions. The program addresses both problematic, technology-related behaviors and substance use such as cannabis and opioids. It balances academic rigor with an applied focus on prevention, intervention, and knowledge transfer.",
+    "about.copy":"Welcome to ICoHA 2025. Over two days we bring together international researchers, professionals and students to share recent evidence and discuss emerging trends in the field of health and addictions. The program addresses both problematic, technology-related behaviors and substance use such as alcohol or cannabis among others. It balances academic rigor with an applied focus on prevention, intervention, and knowledge transfer.",
     "about.benefit1.title":"Networking","about.benefit1.copy":"Connect with researchers, clinicians and program leads.",
     "about.benefit2.title":"International speakers","about.benefit2.copy":"Leading perspectives in health and addictions.",
     "about.benefit3.title":"Up-to-date science","about.benefit3.copy":"Applied to prevention and health promotion.",

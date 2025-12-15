@@ -207,9 +207,7 @@
       <p class="lead mb-1" data-i18n="hero.tagline">Updates in evidence and science communication</p>
       <p class="mb-4" data-i18n="hero.meta">11 y 12 de diciembre de 2025 · Universidad Miguel Hernández · Elche</p>
       <div class="d-flex justify-content-center gap-2">
-        <button class="btn btn-light btn-lg" type="button" data-bs-toggle="modal" data-bs-target="#certificateModal">
-          Imprime tu certificado de asistencia
-        </button>
+       
       </div>
     </div>
     <div class="hero-overlay"></div>
@@ -539,82 +537,7 @@
   </footer>
 
   
-  <!-- Certificados -->
-  <div class="modal fade" id="certificateModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-md modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Imprimir certificado</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-        </div>
-        <div class="modal-body">
-          <p class="small text-muted mb-3">Introduce los datos tal y como aparecen en tu inscripción. El certificado se genera en PDF y se abrirá en una nueva pestaña.</p>
-
-          <form id="certificateForm" action="https://script.google.com/macros/s/AKfycbyoKl1yczpwkPpQD5ryTb2kB9F4P8mSEY7UfjNPckYY0FffnKum4SauKl5b5iJCghZY/exec" method="post" target="_blank" class="needs-validation" novalidate>
-            <input type="hidden" name="lang" id="certLang" value="es">
-            <div class="mb-3">
-              <label class="form-label">Nombre</label>
-              <input type="text" class="form-control" name="nombre" required autocomplete="given-name">
-              <div class="invalid-feedback">Escribe tu nombre.</div>
-            </div>
-
-            <div class="mb-3">
-              <label class="form-label">Apellidos</label>
-              <input type="text" class="form-control" name="apellidos" required autocomplete="family-name">
-              <div class="invalid-feedback">Escribe tus apellidos.</div>
-            </div>
-
-            <div class="mb-2">
-              <label class="form-label">DNI o NIE</label>
-              <input type="text" class="form-control text-uppercase" name="dni" required inputmode="text" autocomplete="off"
-                     pattern="^[0-9A-Za-z]{6,12}$">
-              <div class="form-text">Sin espacios ni guiones.</div>
-              <div class="invalid-feedback">Revisa el formato del DNI o NIE.</div>
-            </div>
-
-            <div class="d-grid mt-3">
-              <button class="btn btn-primary" type="submit">Generar PDF</button>
-            </div>
-          </form>
-
-          <p class="small text-muted mt-3 mb-0">Si tienes cualquier incidencia, escribe a alvaro.garciac@umh.es</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script>
-  (function () {
-    const form = document.getElementById('certificateForm');
-    if (!form) return;
-
-    const langInput = document.getElementById('certLang');
-
-    form.addEventListener('submit', function (event) {
-      if (!form.checkValidity()) {
-        event.preventDefault();
-        event.stopPropagation();
-      } else {
-        const dniEl = form.querySelector('input[name="dni"]');
-        if (dniEl) dniEl.value = (dniEl.value || '').replace(/\s+/g, '').replace(/-/g, '').toUpperCase();
-
-        const nombreEl = form.querySelector('input[name="nombre"]');
-        if (nombreEl) nombreEl.value = (nombreEl.value || '').trim();
-
-        const apellidosEl = form.querySelector('input[name="apellidos"]');
-        if (apellidosEl) apellidosEl.value = (apellidosEl.value || '').trim();
-
-        let lang = 'es';
-        try {
-          lang = localStorage.getItem('lang') || document.documentElement.lang || 'es';
-        } catch (e) {}
-        if (langInput) langInput.value = lang;
-      }
-
-      form.classList.add('was-validated');
-    }, false);
-  })();
-  </script>
+  
 
 
   <!-- Modales auxiliares (Pósteres, envío, legales) -->

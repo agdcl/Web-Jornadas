@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ICoHA 2026 · III International Conference on Health and Addictions. Evidencia, prevención, intervención y divulgación científica en salud y adicciones.">
+  <meta name="theme-color" content="#073451">
+  <title>ICoHA 2026 · III International Conference on Health and Addictions</title>
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <style>
+    :root{
+      --icoha-navy:#073451;
+      --icoha-blue:#2878a8;
+      --icoha-cyan:#54b4c7;
+      --icoha-teal:#38a994;
+      --icoha-mint:#bce6d8;
+      --icoha-ice:#eef8f8;
+      --icoha-ink:#0c3047;
+      --icoha-muted:#597181;
+      --icoha-line:#dcebed;
+      --icoha-white:#ffffff;
+    }
+
+    html{ scroll-behavior:smooth; }
+    body{
+      color:var(--icoha-ink);
+      background:#fff;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+      overflow-x:hidden;
+    }
+    a{ color:var(--icoha-blue); }
+
+    .navbar{
+      --bs-navbar-padding-y:.85rem;
+      background:rgba(255,255,255,.94)!important;
+      backdrop-filter:blur(16px) saturate(145%);
+      border-bottom:1px solid rgba(7,52,81,.07);
+    }
+    .navbar-brand{
+      color:var(--icoha-navy)!important;
+      letter-spacing:-.035em;
+      font-size:1.4rem;
+    }
+    .brand-dot{
+      display:inline-block;
+      width:.56rem;height:.56rem;border-radius:50%;
+      background:linear-gradient(135deg,var(--icoha-teal),var(--icoha-blue));
+      margin-right:.45rem;
+      box-shadow:.65rem -.3rem 0 -.08rem rgba(84,180,199,.42), 1.05rem .15rem 0 -.12rem rgba(40,120,168,.28);
+    }
+    .nav-link{ color:#385667!important; font-weight:500; }
+    .nav-link:hover{ color:var(--icoha-teal)!important; }
+
+    .btn-icoha{
+      --bs-btn-color:#fff;
+      --bs-btn-bg:var(--icoha-navy);
+      --bs-btn-border-color:var(--icoha-navy);
+      --bs-btn-hover-color:#fff;
+      --bs-btn-hover-bg:#0b496c;
+      --bs-btn-hover-border-color:#0b496c;
+      border-radius:999px;
+      padding:.72rem 1.25rem;
+      font-weight:650;
+    }
+    .btn-icoha-gradient{
+      color:#fff;
+      border:0;
+      border-radius:999px;
+      padding:.78rem 1.35rem;
+      font-weight:650;
+      background:linear-gradient(105deg,var(--icoha-blue),var(--icoha-teal));
+      box-shadow:0 10px 30px rgba(40,120,168,.18);
+    }
+    .btn-icoha-gradient:hover{ color:#fff; transform:translateY(-1px); }
+    .btn-outline-icoha{
+      color:var(--icoha-navy);
+      border:1px solid rgba(7,52,81,.28);
+      border-radius:999px;
+      padding:.7rem 1.2rem;
+      font-weight:650;
+      background:#fff;
+    }
+    .btn-outline-icoha:hover{ color:#fff;background:var(--icoha-navy);border-color:var(--icoha-navy); }
+
+    .hero-2026{
+      position:relative;
+      min-height:calc(100vh - 72px);
+      display:flex;
+      align-items:center;
+      padding:clamp(4rem,7vw,7rem) 0;
+      background:
+        radial-gradient(circle at 88% 12%, rgba(188,230,216,.65) 0 8%, transparent 27%),
+        radial-gradient(circle at 66% 76%, rgba(84,180,199,.17) 0 12%, transparent 34%),
+        linear-gradient(180deg,#fff 0%,#fbfefe 68%,#f2fafa 100%);
+      overflow:hidden;
+    }
+    .hero-2026::before,
+    .hero-2026::after{
+      content:"";
+      position:absolute;
+      border-radius:50%;
+      pointer-events:none;
+    }
+    .hero-2026::before{
+      width:480px;height:480px;right:-210px;top:8%;
+      border:1px solid rgba(56,169,148,.17);
+      box-shadow:0 0 0 80px rgba(56,169,148,.035),0 0 0 160px rgba(40,120,168,.025);
+    }
+    .hero-2026::after{
+      width:310px;height:310px;left:-180px;bottom:-90px;
+      background:rgba(84,180,199,.06);
+    }
+    .hero-content{ position:relative;z-index:2; }
+    .edition-label{
+      display:inline-flex;align-items:center;gap:.7rem;
+      font-size:.78rem;font-weight:750;letter-spacing:.18em;text-transform:uppercase;
+      color:var(--icoha-blue);
+    }
+    .edition-label::before{ content:"";width:28px;height:4px;background:linear-gradient(90deg,var(--icoha-teal),var(--icoha-blue));border-radius:4px; }
+    .hero-kicker{
+      margin-top:1.2rem;
+      font-size:clamp(1rem,1.5vw,1.25rem);
+      font-weight:650;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      color:var(--icoha-navy);
+      max-width:720px;
+    }
+    .hero-title{
+      margin:.45rem 0 0;
+      font-size:clamp(4.4rem,11vw,8.7rem);
+      line-height:.78;
+      font-weight:850;
+      letter-spacing:-.075em;
+      color:var(--icoha-navy);
+    }
+    .hero-year{
+      display:block;
+      font-size:.73em;
+      line-height:1;
+      letter-spacing:-.06em;
+      background:linear-gradient(100deg,var(--icoha-teal) 2%,var(--icoha-cyan) 48%,var(--icoha-blue) 98%);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+    .hero-tagline{
+      margin-top:1.4rem;
+      max-width:670px;
+      color:#244d63;
+      font-size:clamp(1.35rem,2.4vw,2rem);
+      line-height:1.22;
+      font-weight:350;
+    }
+    .hero-meta{
+      display:flex;flex-wrap:wrap;gap:.75rem 1.2rem;
+      margin:1.55rem 0 0;
+      color:var(--icoha-muted);
+    }
+    .hero-meta span{ display:inline-flex;align-items:center;gap:.45rem; }
+    .hero-status{
+      display:inline-flex;align-items:center;gap:.65rem;
+      margin-top:1.35rem;
+      padding:.65rem 1rem;
+      border-radius:999px;
+      color:var(--icoha-navy);
+      background:rgba(188,230,216,.42);
+      border:1px solid rgba(56,169,148,.17);
+      font-weight:650;
+      font-size:.92rem;
+    }
+    .pulse-dot{ width:.58rem;height:.58rem;border-radius:50%;background:var(--icoha-teal);box-shadow:0 0 0 .36rem rgba(56,169,148,.12); }
+
+    .poster-shell{
+      position:relative;
+      width:min(430px,82vw);
+      margin-inline:auto;
+      border-radius:28px;
+      padding:10px;
+      background:rgba(255,255,255,.78);
+      box-shadow:0 30px 80px rgba(7,52,81,.15);
+      border:1px solid rgba(7,52,81,.08);
+      transform:rotate(1.4deg);
+    }
+    .poster-shell::before{
+      content:"";position:absolute;inset:14% -12% -8% 18%;z-index:-1;border-radius:50%;
+      background:linear-gradient(135deg,rgba(84,180,199,.24),rgba(188,230,216,.16));filter:blur(6px);
+    }
+    .poster-shell img{ display:block;width:100%;border-radius:20px; }
+
+    .section-pad{ padding:clamp(4.3rem,7vw,7rem) 0; }
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:.6rem;
+      margin-bottom:.85rem;
+      color:var(--icoha-teal);
+      font-weight:750;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      font-size:.78rem;
+    }
+    .eyebrow::before{ content:"";width:24px;height:2px;background:currentColor; }
+    .section-title{
+      font-size:clamp(2rem,4.3vw,3.6rem);
+      line-height:1.05;
+      letter-spacing:-.045em;
+      font-weight:780;
+      color:var(--icoha-navy);
+    }
+    .lead-copy{ color:#496779;font-size:1.1rem;line-height:1.75; }
+
+    .stat-strip{
+      margin-top:2rem;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:1px;
+      border:1px solid var(--icoha-line);
+      border-radius:20px;
+      overflow:hidden;
+      background:var(--icoha-line);
+    }
+    .stat-item{ background:#fff;padding:1.25rem 1rem; }
+    .stat-item strong{ display:block;color:var(--icoha-navy);font-size:1.05rem; }
+    .stat-item span{ display:block;color:var(--icoha-muted);font-size:.86rem;margin-top:.25rem; }
+
+    .axes-section{ background:linear-gradient(180deg,#f5fbfb,#fff); }
+    .axis-card{
+      height:100%;
+      padding:1.5rem;
+      border-radius:22px;
+      background:#fff;
+      border:1px solid rgba(7,52,81,.08);
+      box-shadow:0 12px 36px rgba(7,52,81,.055);
+      transition:.22s ease;
+    }
+    .axis-card:hover{ transform:translateY(-4px);box-shadow:0 18px 42px rgba(7,52,81,.09); }
+    .axis-icon{
+      width:58px;height:58px;border-radius:50%;
+      display:grid;place-items:center;
+      font-size:1.55rem;
+      color:var(--icoha-blue);
+      background:linear-gradient(135deg,rgba(188,230,216,.72),rgba(222,242,248,.9));
+      margin-bottom:1rem;
+    }
+    .axis-card:nth-child(2n) .axis-icon{ color:var(--icoha-teal); }
+    .axis-card h3{ font-size:1.08rem;font-weight:750;color:var(--icoha-navy); }
+    .axis-card p{ margin:0;color:var(--icoha-muted);font-size:.94rem;line-height:1.55; }
+
+    .soon-panel{
+      position:relative;
+      border-radius:32px;
+      overflow:hidden;
+      padding:clamp(2rem,5vw,4.2rem);
+      color:#fff;
+      background:
+        radial-gradient(circle at 82% 20%,rgba(84,180,199,.28),transparent 28%),
+        linear-gradient(125deg,#062f49 0%,#0c5275 58%,#2f9f97 120%);
+      box-shadow:0 22px 70px rgba(7,52,81,.15);
+    }
+    .soon-panel::after{
+      content:"";position:absolute;width:280px;height:280px;border-radius:50%;right:-90px;bottom:-150px;border:1px solid rgba(255,255,255,.2);box-shadow:0 0 0 55px rgba(255,255,255,.035),0 0 0 110px rgba(255,255,255,.025);
+    }
+    .soon-panel .section-title{ color:#fff;max-width:760px; }
+    .soon-panel p{ color:rgba(255,255,255,.78);max-width:760px; }
+    .soon-badge{ display:inline-flex;align-items:center;gap:.6rem;padding:.6rem .9rem;border:1px solid rgba(255,255,255,.22);border-radius:999px;background:rgba(255,255,255,.08);backdrop-filter:blur(10px); }
+
+    .story-card{
+      height:100%;
+      border-radius:24px;
+      border:1px solid rgba(7,52,81,.08);
+      background:#fff;
+      padding:1.8rem;
+    }
+    .story-card .icon{
+      width:52px;height:52px;border-radius:14px;display:grid;place-items:center;
+      font-size:1.35rem;color:#fff;background:linear-gradient(135deg,var(--icoha-blue),var(--icoha-teal));
+    }
+    .story-card h3{ color:var(--icoha-navy);font-weight:750;margin-top:1.2rem; }
+    .story-card p{ color:var(--icoha-muted);line-height:1.65;margin-bottom:0; }
+
+    .registration-card{
+      border-radius:28px;
+      padding:clamp(2rem,4vw,3.6rem);
+      background:linear-gradient(135deg,#ecf9f5,#eff8fc);
+      border:1px solid rgba(56,169,148,.15);
+    }
+    .registration-card .display-status{ font-size:clamp(2.2rem,5vw,4rem);font-weight:800;letter-spacing:-.05em;color:var(--icoha-navy); }
+
+    .venue-card{
+      border-radius:26px;overflow:hidden;border:1px solid rgba(7,52,81,.08);box-shadow:0 15px 45px rgba(7,52,81,.07);background:#fff;
+    }
+    .venue-copy{ padding:clamp(1.8rem,4vw,3rem); }
+    .venue-map{ min-height:390px; }
+    .venue-map iframe{ width:100%;height:100%;min-height:390px;border:0; }
+
+    .org-strip{
+      display:grid;
+      grid-template-columns:repeat(5,minmax(0,1fr));
+      gap:1rem;
+      align-items:center;
+    }
+    .org-item{ min-width:0; }
+    .logo-box{
+      height:92px;
+      display:flex;align-items:center;justify-content:center;
+      padding:.65rem;
+      border-radius:16px;
+      background:#fff;
+      border:1px solid rgba(7,52,81,.06);
+    }
+    .org-img{ width:100%;height:100%;object-fit:contain;display:block; }
+
+    footer{ background:#f8fcfc;border-top:1px solid var(--icoha-line); }
+    .footer-brand{ font-weight:800;letter-spacing:.15em;color:var(--icoha-navy); }
+
+    .lang-btn.active{ color:#fff!important;background:var(--icoha-navy)!important;border-color:var(--icoha-navy)!important; }
+    .reveal{ opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease; }
+    .reveal.visible{ opacity:1;transform:none; }
+
+    @media (max-width:991.98px){
+      .hero-2026{ min-height:auto;text-align:center; }
+      .hero-kicker,.hero-tagline{ margin-left:auto;margin-right:auto; }
+      .hero-meta{ justify-content:center; }
+      .poster-shell{ margin-top:3rem;width:min(390px,82vw);transform:none; }
+      .org-strip{ grid-template-columns:repeat(3,minmax(0,1fr)); }
+      .logo-box{ height:78px; }
+    }
+    @media (max-width:767.98px){
+      .hero-title{ font-size:clamp(4.4rem,24vw,7.4rem); }
+      .stat-strip{ grid-template-columns:1fr; }
+      .org-strip{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .venue-map,.venue-map iframe{ min-height:310px; }
+    }
+    @media (max-width:420px){
+      .org-strip{ grid-template-columns:1fr 1fr;gap:.65rem; }
+      .logo-box{ height:68px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#top" aria-label="ICoHA 2026"><span class="brand-dot"></span>ICoHA · 2026</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Abrir navegación">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav me-auto ms-lg-4">
+          <li class="nav-item"><a class="nav-link" href="#about" data-i18n="nav.about">Las jornadas</a></li>
+          <li class="nav-item"><a class="nav-link" href="#axes" data-i18n="nav.axes">Ejes</a></li>
+          <li class="nav-item"><a class="nav-link" href="#speakers" data-i18n="nav.speakers">Ponentes</a></li>
+          <li class="nav-item"><a class="nav-link" href="#abstracts" data-i18n="nav.abstracts">Trabajos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#venue" data-i18n="nav.venue">Sede</a></li>
+          <li class="nav-item"><a class="nav-link" href="#organizers" data-i18n="nav.organizers">Organiza</a></li>
+        </ul>
+        <div class="d-flex align-items-center gap-2 mt-3 mt-lg-0">
+          <button class="btn btn-sm btn-outline-secondary lang-btn active" data-lang="es" type="button">ES</button>
+          <button class="btn btn-sm btn-outline-secondary lang-btn" data-lang="en" type="button">EN</button>
+          <a class="btn btn-icoha d-none d-xl-inline-flex" href="#updates" data-i18n="nav.updates">Novedades 2026</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <section class="hero-2026">
+      <div class="container hero-content">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-7">
+            <div class="edition-label" data-i18n="hero.edition">III International Conference</div>
+            <div class="hero-kicker" data-i18n="hero.kicker">International Conference on Health and Addictions</div>
+            <h1 class="hero-title" aria-label="ICoHA 2026">ICoHA <span class="hero-year">2026</span></h1>
+            <p class="hero-tagline" data-i18n="hero.tagline">Updates in evidence and science communication</p>
+            <div class="hero-meta">
+              <span><i class="bi bi-geo-alt-fill"></i><span data-i18n="hero.place">Universidad Miguel Hernández · Elche</span></span>
+              <span><i class="bi bi-calendar3"></i><span data-i18n="hero.date">Fechas próximamente</span></span>
+            </div>
+            <div class="hero-status"><span class="pulse-dot"></span><span data-i18n="hero.status">Ponentes y programa próximamente</span></div>
+            <div class="d-flex flex-wrap gap-2 mt-4 justify-content-center justify-content-lg-start">
+              <a href="#about" class="btn btn-icoha-gradient" data-i18n="hero.cta1">Descubre ICoHA 2026</a>
+              <a href="#updates" class="btn btn-outline-icoha" data-i18n="hero.cta2">Recibir novedades</a>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <div class="poster-shell reveal">
+              <img src="assets/img/icoha2026-poster.png" alt="Cartel promocional ICoHA 2026" loading="eager">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad reveal" id="about">
+      <div class="container">
+        <div class="row g-5 align-items-start">
+          <div class="col-lg-5">
+            <div class="eyebrow" data-i18n="about.eyebrow">ICoHA 2026</div>
+            <h2 class="section-title" data-i18n="about.title">Evidencia científica para una sociedad más saludable</h2>
+          </div>
+          <div class="col-lg-7">
+            <p class="lead-copy" data-i18n="about.copy">La tercera edición de ICoHA mantendrá el enfoque que define las jornadas: reunir a investigadores, profesionales y estudiantes para compartir evidencia reciente y debatir los retos emergentes en salud y adicciones. El encuentro abordará tanto el consumo de sustancias como los comportamientos problemáticos vinculados a la tecnología, combinando rigor académico, prevención, intervención y transferencia de conocimiento.</p>
+            <div class="stat-strip">
+              <div class="stat-item"><strong data-i18n="about.stat1.title">Investigación internacional</strong><span data-i18n="about.stat1.copy">Perspectivas y evidencia actual.</span></div>
+              <div class="stat-item"><strong data-i18n="about.stat2.title">Aplicación real</strong><span data-i18n="about.stat2.copy">Prevención, intervención y salud.</span></div>
+              <div class="stat-item"><strong data-i18n="about.stat3.title">Comunidad</strong><span data-i18n="about.stat3.copy">Ciencia, profesionales y sociedad.</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad axes-section reveal" id="axes">
+      <div class="container">
+        <div class="text-center mx-auto mb-5" style="max-width:760px">
+          <div class="eyebrow justify-content-center" data-i18n="axes.eyebrow">Ejes 2026</div>
+          <h2 class="section-title" data-i18n="axes.title">Los mismos desafíos. Nueva evidencia.</h2>
+          <p class="lead-copy mt-3" data-i18n="axes.copy">El programa se construirá alrededor de seis ámbitos conectados, con especial atención a los cambios sociales y tecnológicos que están transformando la salud y las adicciones.</p>
+        </div>
+        <div class="row g-3 g-lg-4">
+          <div class="col-sm-6 col-lg-4"><article class="axis-card"><div class="axis-icon"><i class="bi bi-heart-pulse"></i></div><h3 data-i18n="axes.health.title">Salud</h3><p data-i18n="axes.health.copy">Bienestar, salud mental, estilos de vida y determinantes sociales.</p></article></div>
+          <div class="col-sm-6 col-lg-4"><article class="axis-card"><div class="axis-icon"><i class="bi bi-brain"></i></div><h3 data-i18n="axes.addictions.title">Adicciones</h3><p data-i18n="axes.addictions.copy">Sustancias, juego y otros comportamientos potencialmente adictivos.</p></article></div>
+          <div class="col-sm-6 col-lg-4"><article class="axis-card"><div class="axis-icon"><i class="bi bi-phone"></i></div><h3 data-i18n="axes.tech.title">Tecnología</h3><p data-i18n="axes.tech.copy">Redes sociales, smartphones, entornos digitales y nuevas exposiciones.</p></article></div>
+          <div class="col-sm-6 col-lg-4"><article class="axis-card"><div class="axis-icon"><i class="bi bi-people"></i></div><h3 data-i18n="axes.prevention.title">Prevención</h3><p data-i18n="axes.prevention.copy">Programas, políticas y estrategias basadas en evidencia.</p></article></div>
+          <div class="col-sm-6 col-lg-4"><article class="axis-card"><div class="axis-icon"><i class="bi bi-bar-chart-line"></i></div><h3 data-i18n="axes.intervention.title">Intervención</h3><p data-i18n="axes.intervention.copy">Evaluación, tratamiento, reducción de riesgos e innovación aplicada.</p></article></div>
+          <div class="col-sm-6 col-lg-4"><article class="axis-card"><div class="axis-icon"><i class="bi bi-megaphone"></i></div><h3 data-i18n="axes.scicomm.title">Divulgación científica</h3><p data-i18n="axes.scicomm.copy">Cómo comunicar evidencia con rigor, claridad y utilidad social.</p></article></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad reveal" id="speakers">
+      <div class="container">
+        <div class="soon-panel">
+          <div class="position-relative" style="z-index:2">
+            <div class="soon-badge mb-4"><i class="bi bi-calendar2-event"></i><span data-i18n="speakers.badge">ICoHA 2026 · En preparación</span></div>
+            <h2 class="section-title" data-i18n="speakers.title">Ponentes y programa, próximamente</h2>
+            <p class="lead mt-3 mb-4" data-i18n="speakers.copy">Estamos trabajando en una nueva selección de especialistas nacionales e internacionales. Publicaremos aquí las primeras confirmaciones, las sesiones y el programa completo conforme se vayan cerrando.</p>
+            <a href="#updates" class="btn btn-light rounded-pill px-4 py-2 fw-semibold" data-i18n="speakers.cta">Quiero recibir las novedades</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad pt-0 reveal" id="approach">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-6">
+            <article class="story-card">
+              <div class="icon"><i class="bi bi-lightbulb"></i></div>
+              <h3 data-i18n="approach.science.title">Divulgación de la ciencia</h3>
+              <p data-i18n="approach.science.copy">ICoHA seguirá reservando un espacio para convertir la mejor evidencia disponible en conocimiento claro, útil y responsable. El objetivo es acercar la ciencia a profesionales, estudiantes, familias, medios y ciudadanía sin perder rigor.</p>
+            </article>
+          </div>
+          <div class="col-lg-6">
+            <article class="story-card">
+              <div class="icon"><i class="bi bi-chat-square-heart"></i></div>
+              <h3 data-i18n="approach.experience.title">Experiencias y proyectos</h3>
+              <p data-i18n="approach.experience.copy">La edición 2026 mantendrá el diálogo entre evidencia y experiencia, incorporando proyectos, buenas prácticas y testimonios capaces de mostrar cómo la investigación se traduce en prevención, intervención y cambio real.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad bg-light reveal" id="abstracts">
+      <div class="container">
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-7">
+            <div class="eyebrow" data-i18n="abstracts.eyebrow">Participación científica</div>
+            <h2 class="section-title" data-i18n="abstracts.title">Envío de trabajos 2026</h2>
+            <p class="lead-copy mt-3" data-i18n="abstracts.copy">ICoHA 2026 mantendrá un espacio para la presentación de comunicaciones científicas. Las normas, fechas límite y procedimiento de envío se publicarán cuando se abra oficialmente la convocatoria.</p>
+          </div>
+          <div class="col-lg-5">
+            <div class="registration-card">
+              <div class="small text-uppercase fw-bold mb-2" style="letter-spacing:.14em;color:var(--icoha-teal)" data-i18n="abstracts.statuslabel">Estado</div>
+              <div class="display-status" data-i18n="abstracts.status">Próximamente</div>
+              <p class="mb-0 mt-2 text-secondary" data-i18n="abstracts.note">Las fechas y plazos se anunciarán con la apertura oficial de la convocatoria.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad reveal" id="updates">
+      <div class="container">
+        <div class="registration-card text-center">
+          <div class="eyebrow justify-content-center" data-i18n="updates.eyebrow">Inscripciones 2026</div>
+          <h2 class="section-title" data-i18n="updates.title">Apertura próximamente</h2>
+          <p class="lead-copy mx-auto mt-3" style="max-width:700px" data-i18n="updates.copy">Las fechas, modalidades, tarifas y formulario de inscripción de la edición 2026 se publicarán cuando queden confirmados. Para información anticipada puedes contactar con la organización.</p>
+          <a class="btn btn-icoha-gradient mt-2" href="mailto:info@icoha.es"><i class="bi bi-envelope me-2"></i><span data-i18n="updates.cta">info@icoha.es</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad pt-0 reveal" id="venue">
+      <div class="container">
+        <div class="venue-card">
+          <div class="row g-0 align-items-stretch">
+            <div class="col-lg-5 venue-copy">
+              <div class="eyebrow" data-i18n="venue.eyebrow">Sede</div>
+              <h2 class="section-title" data-i18n="venue.title">Universidad Miguel Hernández · Elche</h2>
+              <p class="lead-copy mt-3" data-i18n="venue.copy">La edición 2026 se celebrará en la Universidad Miguel Hernández de Elche. Los espacios concretos y la información práctica se comunicarán junto con el programa definitivo.</p>
+              <p class="mb-1"><i class="bi bi-envelope me-2"></i>info@icoha.es</p>
+              <p class="mb-0"><i class="bi bi-telephone me-2"></i>+34 966 658 526</p>
+            </div>
+            <div class="col-lg-7 venue-map">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3625.673204000943!2d-0.6837784237521811!3d38.27508538318253!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd63b7ac2ff3f393%3A0xa32af0642be46e8!2sEdificio%20Valona!5e1!3m2!1ses!2ses!4v1760968983541!5m2!1ses!2ses" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Universidad Miguel Hernández de Elche"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad bg-light reveal" id="organizers">
+      <div class="container">
+        <div class="d-flex flex-column flex-md-row align-items-md-end justify-content-between gap-3 mb-4">
+          <div>
+            <div class="eyebrow" data-i18n="organizers.eyebrow">ICoHA</div>
+            <h2 class="section-title mb-0" data-i18n="organizers.title">Organiza</h2>
+          </div>
+          <p class="text-secondary mb-0" data-i18n="organizers.note">Ciencia, prevención y comunidad.</p>
+        </div>
+        <div class="org-strip">
+          <div class="org-item"><div class="logo-box"><img src="assets/img/logo_umh_trans.png" alt="Universidad Miguel Hernández" class="org-img" loading="lazy"></div></div>
+          <div class="org-item"><div class="logo-box"><img src="assets/img/logo_inid_horizontal_trans.png" alt="INID" class="org-img" loading="lazy"></div></div>
+          <div class="org-item"><div class="logo-box"><img src="assets/img/logo_ucab_trans.png" alt="UCAB" class="org-img" loading="lazy"></div></div>
+          <div class="org-item"><div class="logo-box"><img src="assets/img/logo%20ibrea.png" alt="Ibrea" class="org-img" loading="lazy"></div></div>
+          <div class="org-item"><div class="logo-box"><img src="assets/img/logo_prevengo.png" alt="Prevengo Research" class="org-img" loading="lazy"></div></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="py-4">
+    <div class="container d-flex flex-column flex-lg-row justify-content-between align-items-center gap-3">
+      <div class="d-flex align-items-center gap-3">
+        <span class="footer-brand">ICoHA 2026</span>
+        <span class="small text-secondary">© 2026 ICoHA</span>
+      </div>
+      <div class="d-flex flex-wrap justify-content-center gap-3 small">
+        <a href="#" data-bs-toggle="modal" data-bs-target="#legalModal">Aviso legal</a>
+        <a href="#" data-bs-toggle="modal" data-bs-target="#privacyModal">Política de privacidad</a>
+        <a href="#" data-bs-toggle="modal" data-bs-target="#cookiesModal">Política de cookies</a>
+      </div>
+      <div class="small"><a href="mailto:info@icoha.es">info@icoha.es</a> · <strong>icoha.es</strong></div>
+    </div>
+  </footer>
+
+  <!-- Se conservan los textos legales de la web existente -->
+<div class="modal fade" id="legalModal" tabindex="-1"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" data-i18n="footer.legal">Aviso legal</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body small"><p>Aviso legal
+1. Titular del sitio web
+
+El presente sitio web www.icoha.es
+ es titularidad de International Conference on Health and Addictions (ICoHA), con domicilio en Avda. de la Universidad s/n, 03202 Elx, España.
+Correo de contacto info@icoha.es
+
+Teléfono +34 966 658 526
+
+2. Objeto y ámbito de aplicación
+
+Este Aviso Legal regula el acceso y uso del sitio web del International Conference on Health and Addictions ICoHA y de sus contenidos. El acceso y navegación por el sitio implica la aceptación de este Aviso Legal.
+
+3. Condiciones de uso
+
+3.1. El usuario se compromete a utilizar el sitio y sus contenidos conforme a la ley, la buena fe, el orden público y estas condiciones.
+3.2. Queda prohibido cualquier uso con fines ilícitos o que pueda dañar, inutilizar o sobrecargar el sitio o impedir su normal utilización.
+3.3. La organización podrá denegar o retirar el acceso al sitio a los usuarios que incumplan estas condiciones.
+
+4. Propiedad intelectual e industrial
+
+4.1. Salvo indicación en contrario, los contenidos del sitio incluyendo denominación de las jornadas, logotipo, diseños, textos, imágenes, vídeos, materiales descargables y bases de datos pertenecen a International Conference on Health and Addictions ICoHA o a terceros que han autorizado su uso. Están protegidos por la normativa de propiedad intelectual e industrial.
+4.2. Se permite el uso y cita de materiales propios de las jornadas siempre que se indique de forma clara la fuente International Conference on Health and Addictions ICoHA y, en su caso, se mantengan los avisos de derechos. Cualquier uso distinto requerirá autorización expresa por escrito.
+4.3. El uso no autorizado de los contenidos podrá dar lugar a responsabilidades legalmente exigibles.
+
+5. Enlaces
+
+5.1. Enlaces salientes. Este sitio puede contener enlaces a páginas de terceros. ICoHA no asume responsabilidad por los contenidos o el funcionamiento de sitios ajenos ni implica relación, aprobación o respaldo con sus titulares.
+5.2. Enlaces entrantes. Se permite enlazar a www.icoha.es
+ siempre que el enlace sea directo, no se haga framing y no se utilicen signos distintivos de ICoHA sin autorización. La organización podrá solicitar la retirada de enlaces si así lo considera.
+
+6. Responsabilidad y garantías
+
+6.1. ICoHA no garantiza la disponibilidad, continuidad ni infalibilidad del funcionamiento del sitio ni la ausencia de virus u otros elementos lesivos. El usuario navega por su cuenta y riesgo.
+6.2. Se realizarán esfuerzos razonables para mantener la información actualizada y exacta sin que ello suponga garantía de ausencia de errores u omisiones.
+6.3. ICoHA no responderá por daños y perjuicios derivados de interferencias, interrupciones, averías, virus, desconexiones, sobrecargas, fallos de la red o de terceros ni por actos u omisiones de los usuarios contrarios a la ley o a este Aviso Legal.
+
+7. Inscripciones, pagos y materiales de las jornadas
+
+7.1. La contratación de inscripciones se realiza en línea a través de la web utilizando la plataforma de pagos de la Universidad Miguel Hernández de Elche conforme a sus condiciones.
+7.2. Política de cancelaciones y devoluciones. No se realizan devoluciones.
+7.3. Fotografías y grabaciones. Durante las jornadas podrán realizarse fotografías y grabaciones con fines de promoción. Las condiciones aplicables al tratamiento de datos de imagen se detallan en la Política de Privacidad.
+
+8. Protección de datos personales
+
+8.1. Responsable del tratamiento. International Conference on Health and Addictions ICoHA. Contacto info@icoha.es
+
+8.2. Finalidades. Gestión de inscripciones, comunicaciones informativas relacionadas con el evento y acreditaciones.
+8.3. Bases jurídicas. Ejecución de contrato para la gestión de la inscripción. Consentimiento del interesado para envíos informativos no estrictamente necesarios y para comunicaciones posteriores sobre nuevas ediciones. Interés legítimo de la organización para fines de seguridad y para la difusión institucional mediante imágenes captadas durante el evento respetando los derechos de imagen.
+8.4. Encargados del tratamiento y proveedores. Se utiliza Google Forms para la gestión de formularios. Los servicios de alojamiento y publicación del sitio se prestan a través de IONOS y GitHub a efectos de infraestructura. Cada proveedor actúa conforme a sus términos de servicio y políticas de privacidad.
+8.5. Transferencias internacionales. No se prevén transferencias internacionales de datos fuera del Espacio Económico Europeo. En caso de que determinados servicios impliquen transferencias, se aplicarán garantías adecuadas como las Cláusulas Contractuales Tipo.
+8.6. Conservación. Los datos se conservarán durante el desarrollo de la actividad de las jornadas y, posteriormente, durante el tiempo estrictamente necesario para atender posibles responsabilidades derivadas de la organización.
+8.7. Derechos. Las personas interesadas pueden ejercer sus derechos de acceso, rectificación, supresión, oposición, limitación del tratamiento y portabilidad dirigiéndose a info@icoha.es
+. También pueden presentar una reclamación ante la autoridad de control competente.
+8.8. Información ampliada. La información completa está disponible en la Política de Privacidad en www.icoha.es/privacidad
+
+9. Cookies y analítica
+
+El sitio utiliza cookies técnicas necesarias para su funcionamiento y para mostrar contenidos incrustados como formularios. No se emplean cookies de analítica o publicidad salvo que se indiquen y obtenga el consentimiento del usuario. El usuario puede obtener información detallada, gestionar sus preferencias y revocar el consentimiento en la Política de Cookies en www.icoha.es/cookies
+
+10. Menores de edad y público objetivo
+
+El evento está dirigido al público general. La participación de menores requiere que acudan acompañados de una persona adulta responsable. En los formularios que impliquen tratamiento de datos de menores se aplicarán las previsiones específicas de la Política de Privacidad.
+
+11. Organización académica
+
+La responsabilidad académica de las jornadas recae en la Universidad Miguel Hernández de Elche. La celebración del evento está prevista en Elche, España.
+
+12. Modificaciones
+
+ICoHA se reserva el derecho a modificar, actualizar o eliminar en cualquier momento la presentación, configuración y contenidos del sitio y el presente Aviso Legal. Las modificaciones serán aplicables desde su publicación.
+
+13. Legislación aplicable y jurisdicción
+
+Este Aviso Legal se rige por la legislación española. Para cualquier controversia derivada del acceso o uso del sitio, las partes se someten a los Juzgados y Tribunales de Elche, Alicante, salvo que la normativa de consumidores disponga otro fuero imperativo.
+Plataforma europea de resolución de litigios en línea disponible en https://ec.europa.eu/consumers/odr
+
+14. Contacto
+
+Para consultas relacionadas con este Aviso Legal puedes escribir a info@icoha.es
+
+Última actualización octubre de 2025.</p></div></div></div></div>
+  <div class="modal fade" id="privacyModal" tabindex="-1"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" data-i18n="footer.privacy">Política de privacidad</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body small"><p>1. Responsable del tratamiento
+
+International Conference on Health and Addictions ICoHA
+Avda. de la Universidad s/n, 03202 Elx, España
+Email de contacto info@icoha.es
+
+Teléfono +34 966 658 526
+Sitio web www.icoha.es
+
+2. Finalidades del tratamiento
+
+2.1. Gestión de inscripciones y participación en las jornadas, incluida la emisión de certificados y la atención de consultas.
+2.2. Envío de comunicaciones relacionadas con el evento, recordatorios operativos y encuestas de satisfacción.
+2.3. Acreditación de ponentes, prensa y personas colaboradoras.
+2.4. Difusión institucional de las jornadas mediante fotografías y grabaciones realizadas durante las actividades.
+2.5. Seguridad del sitio web y mantenimiento técnico.
+
+3. Categorías de datos
+
+Identificativos y de contacto. Datos profesionales o de afiliación académica. Datos de facturación si fueran necesarios. Imagen y voz en el contexto de la cobertura audiovisual del evento. Datos de navegación necesarios para seguridad y funcionamiento del sitio.
+
+4. Bases jurídicas
+
+4.1. Ejecución de un contrato o medidas precontractuales para gestionar la inscripción y la asistencia.
+4.2. Cumplimiento de obligaciones legales en materia fiscal y contable si procediera la facturación.
+4.3. Consentimiento del interesado para comunicaciones no estrictamente necesarias y para comunicaciones sobre futuras ediciones. Podrás retirarlo en cualquier momento.
+4.4. Interés legítimo de ICoHA para la seguridad del sitio y la difusión institucional mediante imágenes captadas en actividades abiertas, valorando proporcionalidad y expectativa razonable. Se facilitarán canales de oposición cuando sea posible.
+
+5. Procedencia
+
+Los datos proceden de las personas interesadas a través de los formularios del sitio o del contacto directo con la organización.
+
+6. Destinatarios
+
+6.1. Universidad Miguel Hernández de Elche para la gestión de pagos en su propia plataforma, que tratará los datos bajo su responsabilidad y conforme a sus políticas.
+6.2. Proveedores que actúan por cuenta de ICoHA como encargados del tratamiento:
+a) Google Forms para la gestión de formularios.
+b) Servicios de alojamiento y publicación web en IONOS y GitHub para la infraestructura del sitio.
+En todos los casos se suscribirán las condiciones aplicables para garantizar la confidencialidad y seguridad.
+6.3. Administraciones públicas y autoridades competentes cuando exista obligación legal.
+
+7. Transferencias internacionales
+
+No se prevén transferencias internacionales fuera del Espacio Económico Europeo. En caso de que algún servicio las implicara, se aplicarían garantías adecuadas como las Cláusulas Contractuales Tipo y medidas adicionales de seguridad.
+
+8. Conservación de los datos
+
+Durante el desarrollo de la actividad de las jornadas y el tiempo estrictamente necesario para atender posibles responsabilidades, auditorías o defensa de reclamaciones. Los datos utilizados para envíos informativos se conservarán mientras no retires tu consentimiento.
+
+9. Derechos de las personas interesadas
+
+Puedes ejercer acceso, rectificación, supresión, oposición, limitación y portabilidad escribiendo a info@icoha.es
+ e indicando el derecho que deseas ejercer. Si consideras que no se han atendido tus derechos, puedes reclamar ante la Agencia Española de Protección de Datos.
+
+10. Tratamiento de imágenes
+
+En las jornadas pueden realizarse fotografías y grabaciones con fines informativos y de difusión institucional. Si no deseas aparecer de forma identificable, comunícalo en acreditación o a través de info@icoha.es
+. Se evitarán planos focalizados sin consentimiento cuando sea razonablemente posible y se atenderán solicitudes de retirada de contenidos publicados por la organización.
+
+11. Menores
+
+La participación de menores requiere que acudan acompañados de una persona adulta responsable. No se recaban datos de menores de 14 años sin consentimiento verificable de sus progenitores o tutores.
+
+12. Seguridad
+
+Se aplican medidas técnicas y organizativas adecuadas para preservar la confidencialidad, integridad y disponibilidad de la información, incluido control de accesos, cifrado de comunicaciones y gestión de copias de seguridad.
+
+13. Datos de terceros
+
+Si facilitas datos de terceras personas, garantizas haber informado previamente y haber obtenido su autorización cuando sea necesario.
+
+14. Cambios en la política
+
+Podremos actualizar esta Política de Privacidad para reflejar cambios legales u organizativos. Las modificaciones serán aplicables desde su publicación en esta página.
+
+Última actualización octubre de 2025.</p></div></div></div></div>
+  <div class="modal fade" id="cookiesModal" tabindex="-1"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" data-i18n="footer.cookies">Política de cookies</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body small"><p>1. ¿Qué son las cookies?
+
+Las cookies son pequeños archivos que se almacenan en tu dispositivo cuando navegas por un sitio web. Sirven para garantizar el funcionamiento seguro y eficiente de la página, recordar ciertas preferencias y, si se habilitan, para realizar analítica o personalización.
+
+2. ¿Qué cookies utiliza www.icoha.es
+?
+
+ICoHA utiliza por defecto únicamente cookies técnicas necesarias para que el sitio funcione y para mostrar contenidos incrustados como formularios. No empleamos cookies de analítica ni de publicidad sin tu consentimiento previo.
+
+Tipos que pueden estar presentes:
+2.1. Cookies técnicas o necesarias. Permiten la navegación, la carga equilibrada del sitio, la seguridad y la gestión de formularios.
+2.2. Cookies de preferencia o personalización. Recuerdan elecciones básicas del usuario como el idioma, si esta función se habilita.
+2.3. Cookies de terceros asociadas a servicios incrustados. Al integrar Google Forms pueden instalarse cookies técnicas de Google para seguridad y prevención del fraude.
+
+Si en el futuro se habilitan cookies de medición o marketing, se solicitará tu consentimiento a través del banner de cookies, con información clara y opciones de configuración.
+
+3. Detalle orientativo de cookies
+
+La siguiente tabla describe de forma orientativa las categorías que pueden utilizarse en el sitio:
+
+Finalidad técnica. Propias de www.icoha.es
+. Sesión. Necesarias para el funcionamiento y la seguridad.
+
+Servicios incrustados. Terceros, por ejemplo Google, cuando se usa Google Forms en páginas de inscripción. Pueden tener duraciones de sesión o persistentes según el servicio. Finalidad de seguridad, prevención de fraude y gestión del servicio.
+
+Consulta la política de cookies y privacidad del proveedor correspondiente para información detallada sobre sus tecnologías.
+
+4. Gestión del consentimiento
+
+4.1. Cookies necesarias. Se instalan por ser imprescindibles para el funcionamiento del sitio.
+4.2. Resto de cookies. No se instalarán sin tu consentimiento. Siempre podrás cambiar tu elección desde el enlace de configuración de cookies que se mostrará en el pie de página cuando estas categorías estén activas.
+
+5. Cómo deshabilitar o eliminar cookies en tu navegador
+
+Puedes permitir, bloquear o eliminar las cookies configurando tu navegador. Estos son los caminos habituales:
+
+Chrome. Configuración, Privacidad y seguridad, Cookies y otros datos de sitios.
+
+Firefox. Ajustes, Privacidad y seguridad, Cookies y datos del sitio.
+
+Edge. Configuración, Cookies y permisos de sitio.
+
+Safari. Preferencias, Privacidad, Gestionar datos de sitios web.
+
+6. Cookies de terceros
+
+Al usar servicios de terceros integrados, estos pueden establecer sus propias cookies. Te recomendamos revisar sus políticas:
+
+Google Forms y servicios relacionados. Consulta sus términos y política de privacidad para conocer el uso de cookies y tecnologías similares.
+
+7. Actualizaciones de la política
+
+Esta política puede actualizarse para reflejar cambios en el uso de cookies o en la normativa aplicable. Las modificaciones serán aplicables desde su publicación en esta página.
+
+Última actualización octubre de 2025.</p></div></div></div></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const translations = {
+      es: {
+        "nav.about":"Las jornadas","nav.axes":"Ejes","nav.speakers":"Ponentes","nav.abstracts":"Trabajos","nav.venue":"Sede","nav.organizers":"Organiza","nav.updates":"Novedades 2026",
+        "hero.edition":"III International Conference","hero.kicker":"International Conference on Health and Addictions","hero.tagline":"Updates in evidence and science communication","hero.place":"Universidad Miguel Hernández · Elche","hero.date":"Fechas próximamente","hero.status":"Ponentes y programa próximamente","hero.cta1":"Descubre ICoHA 2026","hero.cta2":"Recibir novedades",
+        "about.eyebrow":"ICoHA 2026","about.title":"Evidencia científica para una sociedad más saludable","about.copy":"La tercera edición de ICoHA mantendrá el enfoque que define las jornadas: reunir a investigadores, profesionales y estudiantes para compartir evidencia reciente y debatir los retos emergentes en salud y adicciones. El encuentro abordará tanto el consumo de sustancias como los comportamientos problemáticos vinculados a la tecnología, combinando rigor académico, prevención, intervención y transferencia de conocimiento.",
+        "about.stat1.title":"Investigación internacional","about.stat1.copy":"Perspectivas y evidencia actual.","about.stat2.title":"Aplicación real","about.stat2.copy":"Prevención, intervención y salud.","about.stat3.title":"Comunidad","about.stat3.copy":"Ciencia, profesionales y sociedad.",
+        "axes.eyebrow":"Ejes 2026","axes.title":"Los mismos desafíos. Nueva evidencia.","axes.copy":"El programa se construirá alrededor de seis ámbitos conectados, con especial atención a los cambios sociales y tecnológicos que están transformando la salud y las adicciones.",
+        "axes.health.title":"Salud","axes.health.copy":"Bienestar, salud mental, estilos de vida y determinantes sociales.","axes.addictions.title":"Adicciones","axes.addictions.copy":"Sustancias, juego y otros comportamientos potencialmente adictivos.","axes.tech.title":"Tecnología","axes.tech.copy":"Redes sociales, smartphones, entornos digitales y nuevas exposiciones.","axes.prevention.title":"Prevención","axes.prevention.copy":"Programas, políticas y estrategias basadas en evidencia.","axes.intervention.title":"Intervención","axes.intervention.copy":"Evaluación, tratamiento, reducción de riesgos e innovación aplicada.","axes.scicomm.title":"Divulgación científica","axes.scicomm.copy":"Cómo comunicar evidencia con rigor, claridad y utilidad social.",
+        "speakers.badge":"ICoHA 2026 · En preparación","speakers.title":"Ponentes y programa, próximamente","speakers.copy":"Estamos trabajando en una nueva selección de especialistas nacionales e internacionales. Publicaremos aquí las primeras confirmaciones, las sesiones y el programa completo conforme se vayan cerrando.","speakers.cta":"Quiero recibir las novedades",
+        "approach.science.title":"Divulgación de la ciencia","approach.science.copy":"ICoHA seguirá reservando un espacio para convertir la mejor evidencia disponible en conocimiento claro, útil y responsable. El objetivo es acercar la ciencia a profesionales, estudiantes, familias, medios y ciudadanía sin perder rigor.","approach.experience.title":"Experiencias y proyectos","approach.experience.copy":"La edición 2026 mantendrá el diálogo entre evidencia y experiencia, incorporando proyectos, buenas prácticas y testimonios capaces de mostrar cómo la investigación se traduce en prevención, intervención y cambio real.",
+        "abstracts.eyebrow":"Participación científica","abstracts.title":"Envío de trabajos 2026","abstracts.copy":"ICoHA 2026 mantendrá un espacio para la presentación de comunicaciones científicas. Las normas, fechas límite y procedimiento de envío se publicarán cuando se abra oficialmente la convocatoria.","abstracts.statuslabel":"Estado","abstracts.status":"Próximamente","abstracts.note":"Las fechas y plazos se anunciarán con la apertura oficial de la convocatoria.",
+        "updates.eyebrow":"Inscripciones 2026","updates.title":"Apertura próximamente","updates.copy":"Las fechas, modalidades, tarifas y formulario de inscripción de la edición 2026 se publicarán cuando queden confirmados. Para información anticipada puedes contactar con la organización.","updates.cta":"info@icoha.es",
+        "venue.eyebrow":"Sede","venue.title":"Universidad Miguel Hernández · Elche","venue.copy":"La edición 2026 se celebrará en la Universidad Miguel Hernández de Elche. Los espacios concretos y la información práctica se comunicarán junto con el programa definitivo.",
+        "organizers.eyebrow":"ICoHA","organizers.title":"Organiza","organizers.note":"Ciencia, prevención y comunidad."
+      },
+      en: {
+        "nav.about":"Conference","nav.axes":"Topics","nav.speakers":"Speakers","nav.abstracts":"Submissions","nav.venue":"Venue","nav.organizers":"Organizers","nav.updates":"2026 updates",
+        "hero.edition":"III International Conference","hero.kicker":"International Conference on Health and Addictions","hero.tagline":"Updates in evidence and science communication","hero.place":"Miguel Hernández University · Elche","hero.date":"Dates coming soon","hero.status":"Speakers and programme coming soon","hero.cta1":"Discover ICoHA 2026","hero.cta2":"Get updates",
+        "about.eyebrow":"ICoHA 2026","about.title":"Scientific evidence for a healthier society","about.copy":"The third edition of ICoHA will retain the conference’s defining approach: bringing together researchers, professionals and students to share recent evidence and discuss emerging challenges in health and addictions. The meeting will address both substance use and problematic technology-related behaviours, combining academic rigour, prevention, intervention and knowledge transfer.",
+        "about.stat1.title":"International research","about.stat1.copy":"Current perspectives and evidence.","about.stat2.title":"Real-world application","about.stat2.copy":"Prevention, intervention and health.","about.stat3.title":"Community","about.stat3.copy":"Science, professionals and society.",
+        "axes.eyebrow":"2026 topics","axes.title":"The same challenges. New evidence.","axes.copy":"The programme will be built around six connected areas, with special attention to the social and technological changes transforming health and addictions.",
+        "axes.health.title":"Health","axes.health.copy":"Well-being, mental health, lifestyles and social determinants.","axes.addictions.title":"Addictions","axes.addictions.copy":"Substances, gambling and other potentially addictive behaviours.","axes.tech.title":"Technology","axes.tech.copy":"Social media, smartphones, digital environments and new exposures.","axes.prevention.title":"Prevention","axes.prevention.copy":"Evidence-based programmes, policies and strategies.","axes.intervention.title":"Intervention","axes.intervention.copy":"Assessment, treatment, harm reduction and applied innovation.","axes.scicomm.title":"Science communication","axes.scicomm.copy":"Communicating evidence with rigour, clarity and social usefulness.",
+        "speakers.badge":"ICoHA 2026 · In preparation","speakers.title":"Speakers and programme coming soon","speakers.copy":"We are working on a new selection of national and international specialists. The first confirmed speakers, sessions and full programme will be published here as they are finalised.","speakers.cta":"Send me the updates",
+        "approach.science.title":"Science communication","approach.science.copy":"ICoHA will continue to provide a space for turning the best available evidence into clear, useful and responsible knowledge, bringing science closer to professionals, students, families, the media and the public without losing rigour.","approach.experience.title":"Experiences and projects","approach.experience.copy":"The 2026 edition will continue the dialogue between evidence and experience, featuring projects, good practices and first-person perspectives that show how research translates into prevention, intervention and real change.",
+        "abstracts.eyebrow":"Scientific participation","abstracts.title":"2026 submissions","abstracts.copy":"ICoHA 2026 will retain a space for scientific communications. Guidelines, deadlines and the submission procedure will be published when the call officially opens.","abstracts.statuslabel":"Status","abstracts.status":"Coming soon","abstracts.note":"Dates and deadlines will be announced when the official call opens.",
+        "updates.eyebrow":"2026 registration","updates.title":"Opening soon","updates.copy":"Dates, registration categories, fees and the 2026 registration form will be published once confirmed. For early information, contact the organisers.","updates.cta":"info@icoha.es",
+        "venue.eyebrow":"Venue","venue.title":"Miguel Hernández University · Elche","venue.copy":"The 2026 edition will take place at Miguel Hernández University in Elche. Specific rooms and practical information will be announced together with the final programme.",
+        "organizers.eyebrow":"ICoHA","organizers.title":"Organizers","organizers.note":"Science, prevention and community."
+      }
+    };
+
+    function setLanguage(lang){
+      const dict = translations[lang] || translations.es;
+      document.documentElement.lang = lang;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        if (dict[key] !== undefined) el.textContent = dict[key];
+      });
+      document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.lang === lang));
+      try { localStorage.setItem('icoha-lang', lang); } catch(e) {}
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('click', () => setLanguage(btn.dataset.lang)));
+    let initialLang = 'es';
+    try { initialLang = localStorage.getItem('icoha-lang') || (navigator.language || 'es').slice(0,2); } catch(e) {}
+    setLanguage(initialLang === 'en' ? 'en' : 'es');
+
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){ entry.target.classList.add('visible'); revealObserver.unobserve(entry.target); }
+      });
+    }, {threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+  </script>
+</body>
+</html>
